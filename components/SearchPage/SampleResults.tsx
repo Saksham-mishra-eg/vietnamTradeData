@@ -177,7 +177,7 @@ export default function SampleResults() {
           transition={{ delay: 0.4 }}
           className="text-center mt-8"
         >
-          <button className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all">
+          <button className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all">
             Start Searching Now
             <ArrowRight className="w-5 h-5" />
           </button>
