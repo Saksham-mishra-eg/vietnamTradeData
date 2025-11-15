@@ -1,9 +1,8 @@
 {
-  "/search-live-data/page": "app/search-live-data/page.js",
-  "/pricing/page": "app/pricing/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/contact-us/page": "app/contact-us/page.js",
-  "/page": "app/page.js",
+  "/pricing/page": "app/pricing/page.js",
   "/about-us/page": "app/about-us/page.js",
-  "/explore-data/page": "app/explore-data/page.js",
-  "/api/trade/route": "app/api/trade/route.js"
+  "/page": "app/page.js",
+  "/explore-data/page": "app/explore-data/page.js"
 }
