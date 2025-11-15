@@ -155,7 +155,7 @@ export default function SearchCTA() {
                   />
                 </div>
 
-                <Button className="w-full h-12 text-base font-semibold bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg">
+                <Button className="w-full h-12 text-base font-semibold bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white shadow-lg">
                   Schedule My Demo
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
