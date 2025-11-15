@@ -67,6 +67,14 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  href="/contact-us"
+                  className="text-slate-300 hover:text-white transition-colors text-sm"
+                >
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/pricing"
                   className="text-slate-300 hover:text-white transition-colors text-sm"
                 >
@@ -79,14 +87,6 @@ export function Footer() {
                   className="text-slate-300 hover:text-white transition-colors text-sm"
                 >
                   Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/"
-                  className="text-slate-300 hover:text-white transition-colors text-sm"
-                >
-                  FAQs
                 </Link>
               </li>
             </ul>
