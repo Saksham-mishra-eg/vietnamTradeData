@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Clean previous build artifacts
+        run: |
+          echo "Removing .next if present"
+          rm -rf .next
+
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            echo "Found package-lock.json — running npm ci"
+            npm ci
+          else
+            echo "No lockfile found — running npm install"
+            npm install
+          fi
+
+      - name: Run build
+        run: npm run build
+
+      - name: Run lint (optional)
+        if: always()
+        run: npm run lint --if-present

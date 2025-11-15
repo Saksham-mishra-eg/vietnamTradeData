@@ -1,0 +1,292 @@
+"use client";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Phone, Mail, Globe, MessageSquare, Send, Clock, MapPin, ChevronRight } from 'lucide-react';
+import { Button } from 'components/ui/button';
+import { Input } from 'components/ui/input';
+import { Label } from 'components/ui/label';
+import { Textarea } from 'components/ui/textarea';
+
+export default function ContactHero(){
+  const contactDetails = [
+    { icon: Phone, label: 'Phone', value: '+91 8003 8003 57', href: 'tel:+918003800357' },
+    { icon: Mail, label: 'Email', value: 'info@exportgenius.in', href: 'mailto:info@exportgenius.in' },
+    { icon: Globe, label: 'Website', value: 'VietnamTradeData.com', href: 'https://www.vietnamtradedata.com' },
+    { icon: MapPin, label: 'Location', value: 'Sector-7, Rohini, New Delhi, India', href: 'https://www.google.com/maps/search/?api=1&query=C-7/224-225,+Sector-7,+Rohini,+New+Delhi,+India' }
+  ];
+
+  return (
+    <section className="relative py-20 md:py-28 bg-gradient-to-br from-slate-50 via-blue-50/30 to-white overflow-hidden">
+      {/* Animated background elements */}
+      <motion.div
+        animate={{
+          scale: [1, 1.2, 1],
+          rotate: [0, 90, 0],
+          opacity: [0.1, 0.15, 0.1]
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+        className="absolute top-0 right-0 w-[500px] h-[500px] bg-ttblue-200/40 rounded-full blur-3xl"
+      />
+      <motion.div
+        animate={{
+          scale: [1, 1.3, 1],
+          rotate: [0, -90, 0],
+          opacity: [0.1, 0.2, 0.1]
+        }}
+        transition={{
+          duration: 25,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+        className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-300/30 rounded-full blur-3xl"
+      />
+
+      {/* Floating decorative shapes */}
+      <motion.div
+        animate={{
+          y: [0, -20, 0],
+          rotate: [0, 10, 0]
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+        className="absolute top-20 left-1/4 w-20 h-20 border-2 border-ttblue-300/30 rounded-lg"
+      />
+
+      <div className="container relative mx-auto max-w-7xl px-4 md:px-6 lg:px-8 z-10">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+          
+          {/* Left side - Header & Contact Info */}
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex-1 max-w-xl"
+          >
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="inline-flex items-center gap-2 bg-ttblue-100 text-ttblue-700 px-4 py-2 rounded-full text-sm font-medium mb-6"
+            >
+              <MessageSquare className="w-4 h-4" />
+              We&apos;re here to help
+            </motion.div>
+
+            {/* Title */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight"
+            >
+              Get in{' '}
+              <span className="bg-gradient-to-r from-ttblue-600 to-ttblue-500 bg-clip-text text-transparent">
+                Touch
+              </span>
+            </motion.h1>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="text-lg text-slate-600 mb-10 leading-relaxed"
+            >
+              We are here to help you unlock the power of Vietnam trade data. Whether you have questions, need a demo, or want to discuss custom solutions, our team is ready to assist you.
+            </motion.p>
+
+            {/* Contact Details Cards */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="space-y-4"
+            >
+              <h3 className="text-xl font-semibold text-slate-900 mb-4">Contact Details</h3>
+              
+              {contactDetails.map((detail, index) => {
+                const Icon = detail.icon;
+                return (
+                  <motion.a
+                    key={index}
+                    href={detail.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.6 + index * 0.1 }}
+                    whileHover={{ x: 5, scale: 1.02 }}
+                    className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md border border-slate-200 hover:border-ttblue-300 transition-all group"
+                  >
+                    <motion.div
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                      className="w-12 h-12 rounded-lg bg-gradient-to-br from-ttblue-500 to-ttblue-600 flex items-center justify-center text-white shadow-md flex-shrink-0"
+                    >
+                      <Icon className="w-6 h-6" />
+                    </motion.div>
+                    <div className="flex-1">
+                      <div className="text-xs text-slate-500 font-medium">{detail.label}</div>
+                      <div className="text-slate-900 font-semibold group-hover:text-ttblue-600 transition-colors">
+                        {detail.value}
+                      </div>
+                    </div>
+                    <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-ttblue-600 group-hover:translate-x-1 transition-all" />
+                  </motion.a>
+                );
+              })}
+            </motion.div>
+
+            {/* Quick info badges */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 0.6 }}
+              className="mt-8 flex flex-wrap gap-3"
+            >
+              <div className="flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-full text-sm">
+                <motion.div
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="w-2 h-2 bg-green-500 rounded-full"
+                />
+                Available 24/7
+              </div>
+              <div className="flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm">
+                <Clock className="w-4 h-4" />
+                Response within 4 hours
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right side - Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex-1 max-w-2xl w-full"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 md:p-10 relative overflow-hidden"
+            >
+              {/* Decorative gradient */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-ttblue-500 via-ttblue-600 to-ttblue-500" />
+              
+              <div className="space-y-6">
+                {/* Form fields */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6 }}
+                    className="space-y-2"
+                  >
+                    <Label htmlFor="firstname" className="text-slate-700 font-medium">First Name</Label>
+                    <Input 
+                      type="text" 
+                      id="firstname" 
+                      placeholder="John" 
+                      className="border-slate-300 focus:border-ttblue-500 focus:ring-ttblue-500"
+                    />
+                  </motion.div>
+                  
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.65 }}
+                    className="space-y-2"
+                  >
+                    <Label htmlFor="lastname" className="text-slate-700 font-medium">Last Name</Label>
+                    <Input 
+                      type="text" 
+                      id="lastname" 
+                      placeholder="Doe" 
+                      className="border-slate-300 focus:border-ttblue-500 focus:ring-ttblue-500"
+                    />
+                  </motion.div>
+                </div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.7 }}
+                  className="space-y-2"
+                >
+                  <Label htmlFor="email" className="text-slate-700 font-medium">Email Address</Label>
+                  <Input 
+                    type="email" 
+                    id="email" 
+                    placeholder="john.doe@company.com" 
+                    className="border-slate-300 focus:border-ttblue-500 focus:ring-ttblue-500"
+                  />
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.75 }}
+                  className="space-y-2"
+                >
+                  <Label htmlFor="subject" className="text-slate-700 font-medium">Subject</Label>
+                  <Input 
+                    type="text" 
+                    id="subject" 
+                    placeholder="How can we help you?" 
+                    className="border-slate-300 focus:border-ttblue-500 focus:ring-ttblue-500"
+                  />
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8 }}
+                  className="space-y-2"
+                >
+                  <Label htmlFor="message" className="text-slate-700 font-medium">Message</Label>
+                  <Textarea 
+                    placeholder="Tell us more about your inquiry..." 
+                    id="message" 
+                    rows={5}
+                    className="border-slate-300 focus:border-ttblue-500 focus:ring-ttblue-500 resize-none"
+                  />
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.85 }}
+                >
+                  <Button 
+                    className="w-full bg-gradient-to-r from-ttblue-600 to-ttblue-500 hover:from-ttblue-700 hover:to-ttblue-600 text-white font-semibold py-6 text-base shadow-lg hover:shadow-xl transition-all group"
+                  >
+                    <span>Send Message</span>
+                    <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </motion.div>
+
+                {/* Privacy note */}
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.9 }}
+                  className="text-xs text-slate-500 text-center"
+                >
+                  By submitting this form, you agree to our Privacy Policy and Terms of Service.
+                </motion.p>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
