@@ -22,7 +22,7 @@ export default function FloatingCTA(){
       <button 
         onClick={() => setShowPopup(true)}
         aria-label="Start free trial" 
-        className={`fixed right-6 bottom-6 z-50 ${visible? 'block':'hidden'}`}
+        className={`fixed right-6 bottom-24 z-50 ${visible? 'block':'hidden'}`}
       >
         <div className="tt-cta-gradient text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-shadow">
           Start Free Trial

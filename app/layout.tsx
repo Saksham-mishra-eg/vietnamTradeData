@@ -3,6 +3,8 @@ import 'styles/globals.css';
 import Providers from './providers';
 import { SimpleHeader } from 'components/ui/simple-header';
 import { Footer } from 'components/ui/footer';
+import FloatingCTA from 'components/Home/FloatingCTA';
+import LiveChatPlaceholder from 'components/Home/LiveChatPlaceholder';
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -23,7 +25,15 @@ const organizationSchema = {
 
 export const metadata = {
   title: 'VietnamTradeData',
-  description: 'Your Gateway to Vietnam Trade Intelligence'
+  description: 'Your Gateway to Vietnam Trade Intelligence',
+  icons: {
+    icon: [
+      { url: '/images/eg-favicon.png' },
+      { url: '/images/eg-fav.png', sizes: '32x32', type: 'image/png' },
+    ],
+    shortcut: '/images/eg-favicon.png',
+    apple: '/images/eg-favicon.png',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }){
@@ -37,6 +47,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
           <SimpleHeader />
           <main className="min-h-[60vh]">{children}</main>
           <Footer />
+          <FloatingCTA />
+          <LiveChatPlaceholder />
         </Providers>
       </body>
     </html>
