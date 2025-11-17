@@ -2,7 +2,8 @@
 
 import React from 'react'; 
 import Link from 'next/link';
-import { DatabaseIcon, ChevronDown } from 'lucide-react';
+import Image from 'next/image';
+import { ChevronDown } from 'lucide-react';
 import { Sheet, SheetContent, SheetFooter } from 'components/ui/sheet';
 import { Button, buttonVariants } from 'components/ui/button';
 import { MenuToggle } from 'components/ui/menu-toggle';
@@ -28,8 +29,14 @@ export function SimpleHeader() {
 		<header className="bg-background/95 supports-[backdrop-filter]:bg-background/80 sticky top-0 z-50 w-full border-b backdrop-blur-lg">
 			<nav className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between px-4">
 				<Link href="/" className="flex items-center gap-2">
-					<DatabaseIcon className="size-6 text-primary" />
-					<p className="font-mono text-lg font-bold">VietnamTradeData</p>
+					<Image 
+						src="/images/eg-logo.png" 
+						alt="VietnamTradeData Logo" 
+						width={180} 
+						height={40}
+						className="h-8 w-auto"
+						priority
+					/>
 				</Link>
 				<div className="hidden items-center gap-2 lg:flex">
 					<Link

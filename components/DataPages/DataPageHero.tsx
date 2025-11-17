@@ -9,7 +9,7 @@ type Props = { pageType: 'import' | 'export' };
 
 export default function DataPageHero({pageType}:Props){
   const title = pageType === 'import' ? 'Vietnam Import Data' : 'Vietnam Export Data';
-  const recordStat = pageType === 'import' ? '5M+ Import Records' : '5M+ Export Records';
+  const recordStat = pageType === 'import' ? '38M+ Import Records' : '32M+ Export Records';
   const countryStat = pageType === 'import' ? '150+ Origin Countries' : '200+ Destination Countries';
 
   const stats = [
@@ -107,7 +107,7 @@ export default function DataPageHero({pageType}:Props){
               whileTap={{ scale: 0.95 }}
             >
               <Link 
-                href="#sample" 
+                href="/contact-us" 
                 className="inline-block bg-white text-ttblue-700 px-8 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-shadow"
               >
                 Request Sample Data
@@ -118,7 +118,7 @@ export default function DataPageHero({pageType}:Props){
               whileTap={{ scale: 0.95 }}
             >
               <Link 
-                href="#pricing" 
+                href="/pricing" 
                 className="inline-block border-2 border-white/40 px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors"
               >
                 View Pricing

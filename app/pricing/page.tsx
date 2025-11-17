@@ -18,12 +18,10 @@ export default function PricingPage() {
   return (
     <main>
       <SEO title="Pricing Plans | Transparent Vietnam Trade Data Subscription Rates" description="Simple, flexible pricing for Vietnam trade data. Plans starting at $99/month. 7-day free trial, no credit card required. Compare features and choose your plan." canonical="/pricing" keywords="Vietnam trade data pricing, subscription plans, trade data cost" />
-      {/* <PricingHero /> */}
       <PricingProvider>
         <PricingShell />
         <ComparisonTable />
       </PricingProvider>
-      {/* <ROICalculator /> */}
       <PricingFAQs />
       <CTASection />
       {/* FAQ JSON-LD for Pricing (generated from shared faqs) */}
