@@ -20,8 +20,6 @@ export default function SearchLiveDataPage() {
       <SearchHero />
       <SearchInterface />
       <KeyFeatures />
-      {/* <DataCoverage /> */}
-      {/* <SearchCategories /> */}
       <SampleResults />
       <SearchBenefits />
       <TrustIndicators />
