@@ -24,6 +24,12 @@ export default function ComparisonTable() {
       monthlyPrice: 1200,
       yearlyPrice: 9000,
     },
+    {
+      name: 'Customized',
+      monthlyPrice: 0,
+      yearlyPrice: 0,
+      customPrice: 'Custom',
+    },
   ];
 
   const features = [
@@ -35,12 +41,14 @@ export default function ComparisonTable() {
           starter: '$250',
           essential: '$500',
           expert: '$1200',
+          customized: 'Custom',
         },
         {
           name: 'Annual Price',
           starter: '$1400',
           essential: '$4000',
           expert: '$9000',
+          customized: 'Custom',
         },
       ],
     },
@@ -52,6 +60,7 @@ export default function ComparisonTable() {
           starter: '11 Countries',
           essential: '31 Countries',
           expert: '62 Countries',
+          customized: 'Custom Coverage',
           description: 'Vietnam, Thailand, Indonesia, Philippines, and more',
         },
         {
@@ -59,12 +68,14 @@ export default function ComparisonTable() {
           starter: 'Jan 2020 Onwards',
           essential: 'Jan 2019 Onwards',
           expert: 'Jan 2010 Onwards',
+          customized: 'Custom Period',
         },
         {
           name: 'Data Update Frequency',
           starter: '30 Days',
           essential: '30 Days',
           expert: '30 Days',
+          customized: 'Real-time',
         },
       ],
     },
@@ -76,30 +87,49 @@ export default function ComparisonTable() {
           starter: '500 Per Month',
           essential: 'Unlimited',
           expert: 'Unlimited',
+          customized: 'Unlimited',
         },
         {
           name: 'Shipment Records View',
           starter: 'Unlimited',
           essential: 'Unlimited',
           expert: 'Unlimited',
+          customized: 'Unlimited',
         },
         {
           name: 'Visualize & Charts',
           starter: true,
           essential: true,
           expert: true,
+          customized: true,
         },
         {
           name: 'Company Profile View',
           starter: 'Unlimited',
           essential: 'Unlimited',
           expert: 'Unlimited',
+          customized: 'Unlimited',
         },
         {
           name: 'Trade Relationship Analysis',
           starter: true,
           essential: true,
           expert: true,
+          customized: true,
+        },
+        {
+          name: 'Market Trend Analysis',
+          starter: false,
+          essential: true,
+          expert: true,
+          customized: true,
+        },
+        {
+          name: 'Competitor Intelligence',
+          starter: false,
+          essential: true,
+          expert: true,
+          customized: true,
         },
       ],
     },
@@ -111,12 +141,14 @@ export default function ComparisonTable() {
           starter: '360,000 Points',
           essential: '1,080,000 Points',
           expert: '2,400,000 Points',
+          customized: 'Custom Points',
         },
         {
           name: 'Contact Information Points',
           starter: '5,000 Points',
           essential: '10,000 Points',
           expert: '30,000 Points',
+          customized: 'Custom Points',
           description: 'Email and Phone Number',
         },
         {
@@ -124,12 +156,21 @@ export default function ComparisonTable() {
           starter: 'Unlimited',
           essential: 'Unlimited',
           expert: 'Unlimited',
+          customized: 'Unlimited',
         },
         {
           name: 'Roll Over Points to Next Year',
           starter: false,
           essential: true,
           expert: true,
+          customized: true,
+        },
+        {
+          name: 'Export Formats',
+          starter: 'CSV, Excel',
+          essential: 'CSV, Excel, PDF',
+          expert: 'CSV, Excel, PDF, API',
+          customized: 'All Formats',
         },
       ],
     },
@@ -141,23 +182,94 @@ export default function ComparisonTable() {
           starter: '1 User',
           essential: '5 Users',
           expert: '10 Users',
+          customized: 'Unlimited',
         },
         {
           name: 'Account Validity',
           starter: '1 Year',
           essential: '1 Year',
           expert: '1 Year',
+          customized: 'Flexible',
+        },
+        {
+          name: 'Multi-User Management',
+          starter: false,
+          essential: true,
+          expert: true,
+          customized: true,
         },
       ],
     },
     {
-      category: 'Support',
+      category: 'Support & Services',
       items: [
         {
           name: 'Customer Support',
-          starter: 'Basic',
+          starter: 'Email',
           essential: 'Email, Chat & Phone',
-          expert: 'Priority Support',
+          expert: 'Priority 24/7',
+          customized: 'Dedicated Manager',
+        },
+        {
+          name: 'Dedicated Account Manager',
+          starter: false,
+          essential: false,
+          expert: true,
+          customized: true,
+        },
+        {
+          name: 'Training & Onboarding',
+          starter: 'Self-Service',
+          essential: 'Basic Training',
+          expert: 'Full Training',
+          customized: 'Custom Training',
+        },
+        {
+          name: 'SLA Guarantees',
+          starter: false,
+          essential: false,
+          expert: true,
+          customized: true,
+        },
+      ],
+    },
+    {
+      category: 'Advanced Features',
+      items: [
+        {
+          name: 'API Access',
+          starter: false,
+          essential: false,
+          expert: true,
+          customized: true,
+        },
+        {
+          name: 'Custom Reports & Dashboards',
+          starter: false,
+          essential: true,
+          expert: true,
+          customized: true,
+        },
+        {
+          name: 'White-Label Solutions',
+          starter: false,
+          essential: false,
+          expert: false,
+          customized: true,
+        },
+        {
+          name: 'On-Premise Deployment',
+          starter: false,
+          essential: false,
+          expert: false,
+          customized: true,
+        },
+        {
+          name: 'Custom Integrations',
+          starter: false,
+          essential: false,
+          expert: true,
+          customized: true,
         },
       ],
     },
@@ -195,12 +307,18 @@ export default function ComparisonTable() {
                       )}
                       <div className="text-lg font-bold text-gray-900">{plan.name}</div>
                       <div className="mt-2">
-                        <span className="text-3xl font-bold text-gray-900">
-                          ${billingCycle === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice}
-                        </span>
-                        <span className="text-gray-600 text-sm ml-1">
-                          /{billingCycle === 'monthly' ? 'month' : 'year'}
-                        </span>
+                        {plan.customPrice ? (
+                          <span className="text-3xl font-bold text-gray-900">{plan.customPrice}</span>
+                        ) : (
+                          <>
+                            <span className="text-3xl font-bold text-gray-900">
+                              ${billingCycle === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice}
+                            </span>
+                            <span className="text-gray-600 text-sm ml-1">
+                              /{billingCycle === 'monthly' ? 'month' : 'year'}
+                            </span>
+                          </>
+                        )}
                       </div>
                     </div>
                   </th>
@@ -215,7 +333,7 @@ export default function ComparisonTable() {
                   {/* Category Header */}
                   <tr className="bg-gray-50">
                     <td
-                      colSpan={4}
+                      colSpan={5}
                       className="px-6 py-3 text-sm font-semibold text-gray-900 sticky left-0 bg-gray-50"
                     >
                       {category.category}
@@ -264,6 +382,17 @@ export default function ComparisonTable() {
                           )
                         ) : (
                           <span className="text-gray-700">{item.expert}</span>
+                        )}
+                      </td>
+                      <td className="px-6 py-4 text-center text-sm">
+                        {typeof item.customized === 'boolean' ? (
+                          item.customized ? (
+                            <Check className="w-5 h-5 text-green-600 mx-auto" />
+                          ) : (
+                            <X className="w-5 h-5 text-gray-300 mx-auto" />
+                          )
+                        ) : (
+                          <span className="text-gray-700">{item.customized}</span>
                         )}
                       </td>
                     </tr>

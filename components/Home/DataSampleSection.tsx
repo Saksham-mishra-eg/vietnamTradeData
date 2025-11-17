@@ -1,12 +1,13 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { AnimatedContainer, TextStagger } from 'components/ui/hero-animated';
 import { Search, Package, Building2, Globe, TrendingUp, ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from 'components/ui/button';
 import { motion } from 'framer-motion';
 
 export default function DataSampleSection() {
+  const [tradeType, setTradeType] = useState<'import' | 'export'>('import');
   return (
     <section className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 overflow-hidden">
       {/* Modern Background Pattern */}
@@ -88,41 +89,17 @@ export default function DataSampleSection() {
                 <form className="space-y-6">
                   {/* Single Row Search */}
                   <div className="flex flex-col lg:flex-row gap-4">
-                    {/* HS Code Input */}
-                    <div className="flex-1 group">
-                      <div className="relative">
-                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-blue-400 group-focus-within:text-blue-600 transition-colors">
-                          <Package className="w-5 h-5" />
-                        </div>
-                        <input
-                          type="text"
-                          placeholder="Enter HS Code"
-                          className="w-full pl-12 pr-5 py-4 text-gray-900 bg-white/50 border-2 border-gray-200 rounded-2xl focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100 outline-none transition-all duration-300 font-medium placeholder:text-gray-400"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Product Description Input */}
-                    <div className="flex-1 group">
-                      <div className="relative">
-                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-400 group-focus-within:text-purple-600 transition-colors">
-                          <Search className="w-5 h-5" />
-                        </div>
-                        <input
-                          type="text"
-                          placeholder="Product Description (e.g., Coffee, Electronics)"
-                          className="w-full pl-12 pr-5 py-4 text-gray-900 bg-white/50 border-2 border-gray-200 rounded-2xl focus:border-purple-500 focus:bg-white focus:ring-4 focus:ring-purple-100 outline-none transition-all duration-300 font-medium placeholder:text-gray-400"
-                        />
-                      </div>
-                    </div>
-
                     {/* Import/Export Dropdown */}
                     <div className="lg:w-48 group">
                       <div className="relative">
                         <div className="absolute left-4 top-1/2 -translate-y-1/2 text-green-400 group-focus-within:text-green-600 transition-colors pointer-events-none">
                           <TrendingUp className="w-5 h-5" />
                         </div>
-                        <select className="w-full pl-12 pr-5 py-4 text-gray-900 bg-white/50 border-2 border-gray-200 rounded-2xl focus:border-green-500 focus:bg-white focus:ring-4 focus:ring-green-100 outline-none transition-all duration-300 font-medium cursor-pointer appearance-none">
+                        <select 
+                          value={tradeType}
+                          onChange={(e) => setTradeType(e.target.value as 'import' | 'export')}
+                          className="w-full pl-12 pr-5 py-4 text-gray-900 bg-white/50 border-2 border-gray-200 rounded-2xl focus:border-green-500 focus:bg-white focus:ring-4 focus:ring-green-100 outline-none transition-all duration-300 font-medium cursor-pointer appearance-none"
+                        >
                           <option value="import">Import</option>
                           <option value="export">Export</option>
                         </select>
@@ -131,6 +108,39 @@ export default function DataSampleSection() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                           </svg>
                         </div>
+                      </div>
+                    </div>
+
+                    {/* Search Type Dropdown */}
+                    <div className="lg:w-56 group">
+                      <div className="relative">
+                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-400 group-focus-within:text-purple-600 transition-colors pointer-events-none">
+                          <Search className="w-5 h-5" />
+                        </div>
+                        <select className="w-full pl-12 pr-5 py-4 text-gray-900 bg-white/50 border-2 border-gray-200 rounded-2xl focus:border-purple-500 focus:bg-white focus:ring-4 focus:ring-purple-100 outline-none transition-all duration-300 font-medium cursor-pointer appearance-none">
+                          <option value="product">Product</option>
+                          <option value="hscode">HS Code</option>
+                          <option value="importer">{tradeType === 'import' ? 'Importer Name' : 'Exporter Name'}</option>
+                        </select>
+                        <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Dynamic Search Input */}
+                    <div className="flex-1 group">
+                      <div className="relative">
+                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-blue-400 group-focus-within:text-blue-600 transition-colors">
+                          <Package className="w-5 h-5" />
+                        </div>
+                        <input
+                          type="text"
+                          placeholder={`Enter HS Code, Product or ${tradeType === 'import' ? 'Importer' : 'Exporter'} Name`}
+                          className="w-full pl-12 pr-5 py-4 text-gray-900 bg-white/50 border-2 border-gray-200 rounded-2xl focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100 outline-none transition-all duration-300 font-medium placeholder:text-gray-400"
+                        />
                       </div>
                     </div>
 
