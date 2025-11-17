@@ -27,10 +27,27 @@ If you want more control, use the GitHub Actions workflow (`.github/workflows/ve
 
 #### Required GitHub Secrets
 
-Add these secrets to your GitHub repository:
+Add these secrets to your GitHub repository. **You need to add each secret separately** - GitHub only allows one secret per form submission.
+
+**Step-by-step instructions:**
+
 1. Go to your repository on GitHub
 2. Navigate to **Settings** → **Secrets and variables** → **Actions**
-3. Click **New repository secret** and add:
+3. Click **New repository secret**
+4. Add the first secret:
+   - **Name**: `VERCEL_TOKEN`
+   - **Secret**: Your Vercel token (e.g., `44Nrv4F5XXW3HRyV5Yvu1Qsc`)
+   - Click **Add secret**
+5. Click **New repository secret** again for the second secret:
+   - **Name**: `VERCEL_ORG_ID`
+   - **Secret**: Your organization ID (e.g., `team_MYPoKdFW2SeyXg3SsbUVnQQA`)
+   - Click **Add secret**
+6. Click **New repository secret** one more time for the third secret:
+   - **Name**: `VERCEL_PROJECT_ID`
+   - **Secret**: Your project ID (e.g., `prj_vFQAlc6Xufoo2V6RiSX67OBgjtnV`)
+   - Click **Add secret**
+
+**Summary of secrets to add:**
 
 | Secret Name | Description | How to Get |
 |------------|-------------|------------|
