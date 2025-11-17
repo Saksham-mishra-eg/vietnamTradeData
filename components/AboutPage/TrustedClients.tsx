@@ -5,18 +5,18 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const clients = [
-  { name: 'DHL', logo: 'https://logo.clearbit.com/dhl.com' },
-  { name: 'Maersk', logo: 'https://logo.clearbit.com/maersk.com' },
-  { name: 'FedEx', logo: 'https://logo.clearbit.com/fedex.com' },
-  { name: 'UPS', logo: 'https://logo.clearbit.com/ups.com' },
-  { name: 'CMA CGM', logo: 'https://logo.clearbit.com/cma-cgm.com' },
-  { name: 'Hapag-Lloyd', logo: 'https://logo.clearbit.com/hapag-lloyd.com' },
-  { name: 'MSC', logo: 'https://logo.clearbit.com/msc.com' },
-  { name: 'Cosco', logo: 'https://logo.clearbit.com/cosco-shipping.com' },
-  { name: 'DB Schenker', logo: 'https://logo.clearbit.com/dbschenker.com' },
-  { name: 'Kuehne+Nagel', logo: 'https://logo.clearbit.com/kuehne-nagel.com' },
-  { name: 'Expeditors', logo: 'https://logo.clearbit.com/expeditors.com' },
-  { name: 'APL', logo: 'https://logo.clearbit.com/apl.com' },
+  { name: 'Client 1', logo: '/images/clients/client.jpg' },
+  { name: 'Client 2', logo: '/images/clients/client1.png' },
+  { name: 'Client 3', logo: '/images/clients/client2.png' },
+  { name: 'Client 4', logo: '/images/clients/client3.png' },
+  { name: 'Client 5', logo: '/images/clients/client4.png' },
+  { name: 'Client 6', logo: '/images/clients/client5.png' },
+  { name: 'Client 7', logo: '/images/clients/client6.png' },
+  { name: 'Client 8', logo: '/images/clients/client7.jpg' },
+  { name: 'Client 9', logo: '/images/clients/client8.png' },
+  { name: 'Client 10', logo: '/images/clients/client9.png' },
+  { name: 'Client 11', logo: '/images/clients/client10.png' },
+  { name: 'Client 12', logo: '/images/clients/client12.png' },
 ];
 
 export default function TrustedClients() {

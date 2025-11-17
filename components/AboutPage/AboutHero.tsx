@@ -14,11 +14,10 @@ export default function AboutHero(){
 
   return (
     <section className="relative bg-gradient-to-br from-ttblue-700 via-ttblue-600 to-ttblue-500 text-white py-24 overflow-hidden">
-      {/* Animated background patterns */}
+      {/* Animated background patterns - reduced on mobile */}
       <motion.div
         animate={{
-          scale: [1, 1.2, 1],
-          rotate: [0, 90, 0],
+          scale: [1, 1.1, 1],
           opacity: [0.1, 0.15, 0.1]
         }}
         transition={{
@@ -30,9 +29,8 @@ export default function AboutHero(){
       />
       <motion.div
         animate={{
-          scale: [1, 1.3, 1],
-          rotate: [0, -90, 0],
-          opacity: [0.1, 0.2, 0.1]
+          scale: [1, 1.1, 1],
+          opacity: [0.1, 0.15, 0.1]
         }}
         transition={{
           duration: 25,
@@ -42,23 +40,23 @@ export default function AboutHero(){
         className="absolute bottom-0 left-0 w-80 h-80 bg-white/10 rounded-full blur-3xl"
       />
 
-      {/* Floating decorative elements */}
+      {/* Floating decorative elements - hidden on mobile */}
       <motion.div
         animate={{
-          y: [0, -20, 0],
-          opacity: [0.3, 0.5, 0.3]
+          y: [0, -10, 0],
+          opacity: [0.2, 0.3, 0.2]
         }}
         transition={{
           duration: 6,
           repeat: Infinity,
           ease: "easeInOut"
         }}
-        className="absolute top-20 right-1/4 w-32 h-32 border-2 border-white/20 rounded-lg rotate-12"
+        className="hidden md:block absolute top-20 right-1/4 w-32 h-32 border-2 border-white/20 rounded-lg rotate-12"
       />
       <motion.div
         animate={{
-          y: [0, 20, 0],
-          opacity: [0.2, 0.4, 0.2]
+          y: [0, 10, 0],
+          opacity: [0.2, 0.3, 0.2]
         }}
         transition={{
           duration: 8,
@@ -66,7 +64,7 @@ export default function AboutHero(){
           ease: "easeInOut",
           delay: 1
         }}
-        className="absolute bottom-32 left-1/4 w-24 h-24 border-2 border-white/20 rounded-full"
+        className="hidden md:block absolute bottom-32 left-1/4 w-24 h-24 border-2 border-white/20 rounded-full"
       />
 
       <div className="container relative mx-auto max-w-7xl px-4 md:px-6 lg:px-8 z-10">
@@ -113,20 +111,9 @@ export default function AboutHero(){
             >
               Empowering Global Trade
               <br />
-              <motion.span
-                initial={{ opacity: 0, backgroundPosition: "0% 50%" }}
-                animate={{ 
-                  opacity: 1,
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
-                }}
-                transition={{ 
-                  opacity: { duration: 0.4, delay: 0.3 },
-                  backgroundPosition: { duration: 5, repeat: Infinity, ease: "linear" }
-                }}
-                className="bg-gradient-to-r from-blue-200 via-white to-blue-200 bg-clip-text text-transparent bg-[length:200%_auto]"
-              >
+              <span className="bg-gradient-to-r from-blue-200 via-white to-blue-200 bg-clip-text text-transparent">
                 with Data Intelligence
-              </motion.span>
+              </span>
             </motion.h1>
 
             <motion.p 

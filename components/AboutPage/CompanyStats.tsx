@@ -56,12 +56,11 @@ const badgeVariants = {
 export default function CompanyStats(){
   return (
     <section className="py-16 bg-gradient-to-r from-ttblue-600 to-ttblue-500 text-white relative overflow-hidden">
-      {/* Animated background elements */}
+      {/* Animated background elements - reduced on mobile */}
       <motion.div
         animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.1, 0.2, 0.1],
-          rotate: [0, 90, 0]
+          scale: [1, 1.1, 1],
+          opacity: [0.1, 0.15, 0.1]
         }}
         transition={{
           duration: 20,
@@ -72,9 +71,8 @@ export default function CompanyStats(){
       />
       <motion.div
         animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.1, 0.15, 0.1],
-          rotate: [0, -90, 0]
+          scale: [1, 1.1, 1],
+          opacity: [0.1, 0.15, 0.1]
         }}
         transition={{
           duration: 25,

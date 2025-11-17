@@ -3,9 +3,7 @@ import DataSampleSection from 'components/Home/DataSampleSection';
 import VietnamTradeStats from 'components/Home/VietnamTradeStats';
 import HomeFAQ from 'components/Home/HomeFAQ';
 import CTASection from 'components/Home/CTASection';
-import FloatingCTA from 'components/Home/FloatingCTA';
 import CookieBanner from 'components/Home/CookieBanner';
-import LiveChatPlaceholder from 'components/Home/LiveChatPlaceholder';
 import SEO from 'components/SEO';
 import DashboardShowcase from 'components/DataPages/DashboardShowcase';
 
@@ -23,12 +21,7 @@ export default function Home(){
       <DataSampleSection />
       <DashboardShowcase />
       <HomeFAQ />
-      {/* <HowItWorksSection /> */}
-      {/* <FeaturesSection /> */}
-      {/* <TestimonialsSection /> */}
       <CTASection />
-      <FloatingCTA />
-      <LiveChatPlaceholder />
       <CookieBanner />
     </>
   );

@@ -1,18 +1,5 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/api/contact/route": "app/api/contact/route.js",
-  "/api/user/delete-data/route": "app/api/user/delete-data/route.js",
-  "/api/trade/route": "app/api/trade/route.js",
-  "/explore-data/page": "app/explore-data/page.js",
-  "/robots.txt/route": "app/robots.txt/route.js",
-  "/page": "app/page.js",
-  "/sitemap.xml/route": "app/sitemap.xml/route.js",
-  "/contact-us/page": "app/contact-us/page.js",
-  "/privacy-policy/page": "app/privacy-policy/page.js",
-  "/pricing/page": "app/pricing/page.js",
-  "/about-us/page": "app/about-us/page.js",
-  "/search-live-data/page": "app/search-live-data/page.js",
   "/vietnam-export-data/page": "app/vietnam-export-data/page.js",
-  "/terms-of-service/page": "app/terms-of-service/page.js",
   "/vietnam-import-data/page": "app/vietnam-import-data/page.js"
 }
