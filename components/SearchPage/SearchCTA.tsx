@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Sparkles, ArrowRight, Phone, Mail } from 'lucide-react';
 import { Button } from 'components/ui/button';
@@ -44,9 +45,11 @@ export default function SearchCTA() {
               Limited Time Offer
             </motion.div>
 
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-              Start Your Free Trial Today
-            </h2>
+            <Link href="/contact-us">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight cursor-pointer hover:text-blue-100 transition-colors">
+                Start Your Free Trial Today
+              </h2>
+            </Link>
             <p className="text-xl text-blue-100 mb-8 leading-relaxed">
               Get instant access to millions of trade records. No credit card required for your 7-day trial.
             </p>
