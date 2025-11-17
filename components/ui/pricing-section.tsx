@@ -3,10 +3,11 @@
 import { Card, CardContent, CardHeader } from "components/ui/card";
 import { TimelineContent } from "components/ui/timeline-animation";
 import NumberFlow from "@number-flow/react";
-import { Database, Ship, TrendingUp, CheckCircle2, Globe, FileText } from "lucide-react";
+import { Database, CheckCircle2, Globe, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { usePricing } from "contexts/PricingContext";
+import Link from "next/link";
 
 const plans = [
   {
@@ -18,16 +19,21 @@ const plans = [
     buttonText: "Buy Now",
     buttonVariant: "outline" as const,
     features: [
-      { text: "50,000 shipment records/month", icon: <Ship size={20} /> },
-      { text: "Basic search & filters", icon: <Database size={20} /> },
-      { text: "Standard data exports", icon: <FileText size={20} /> },
+      { text: "11 Countries", icon: <Globe size={20} /> },
+      { text: "500 Searches/Month", icon: <Database size={20} /> },
+      { text: "360K Download Credits", icon: <FileText size={20} /> },
     ],
     includes: [
-      "Starter includes:",
-      "Email support",
-      "Monthly data updates",
-      "Basic analytics dashboard",
-      "CSV/Excel export",
+      "Shipment Data from Jan 2020",
+      "Unlimited Shipment Records View",
+      "5,000 Contact Info Credits (Email & Phone)",
+      "1 User Account",
+      "Basic Email Support",
+      "Add to Favorites - Unlimited",
+      "Visualizations & Charts",
+      "Company Profile View - Unlimited",
+      "Trade Relationship Analysis",
+      "Data Export (CSV/Excel)",
     ],
   },
   {
@@ -40,17 +46,25 @@ const plans = [
     buttonVariant: "default" as const,
     popular: true,
     features: [
-      { text: "Unlimited shipment records", icon: <Ship size={20} /> },
-      { text: "Advanced analytics & trends", icon: <TrendingUp size={20} /> },
-      { text: "API access included", icon: <Globe size={20} /> },
+      { text: "31 Countries", icon: <Globe size={20} /> },
+      { text: "Unlimited Searches", icon: <Database size={20} /> },
+      { text: "1.08M Download Credits", icon: <FileText size={20} /> },
     ],
     includes: [
-      "Everything in Starter, plus:",
-      "Priority email & chat support",
-      "Real-time data updates",
-      "Custom reports & dashboards",
-      "Competitor intelligence",
-      "Market trend analysis",
+      "Shipment Data from Jan 2019",
+      "Unlimited Shipment Records View",
+      "10,000 Contact Info Credits (Email & Phone)",
+      "5 User Accounts",
+      "Priority Email, Chat & Phone Support",
+      "Add to Favorites - Unlimited",
+      "Visualizations & Charts",
+      "Company Profile View - Unlimited",
+      "Trade Relationship Analysis",
+      "Roll Over Credits to Next Year",
+      "Advanced Market Intelligence",
+      "Competitor Analysis Tools",
+      "Custom Report Generation",
+      "Data Export (CSV/Excel/PDF)",
     ],
   },
   {
@@ -62,18 +76,29 @@ const plans = [
     buttonText: "Buy Now",
     buttonVariant: "outline" as const,
     features: [
-      { text: "Unlimited everything", icon: <Ship size={20} /> },
-      { text: "Dedicated account manager", icon: <Globe size={20} /> },
-      { text: "Custom integrations", icon: <TrendingUp size={20} /> },
+      { text: "62 Countries", icon: <Globe size={20} /> },
+      { text: "Unlimited Searches", icon: <Database size={20} /> },
+      { text: "2.4M Download Credits", icon: <FileText size={20} /> },
     ],
     includes: [
-      "Everything in Essential, plus:",
-      "24/7 phone & priority support",
-      "White-label solutions",
-      "Custom data fields",
-      "Multi-user management",
-      "SLA guarantees",
-      "On-premise deployment option",
+      "Shipment Data from Jan 2010",
+      "Unlimited Shipment Records View",
+      "30,000 Contact Info Credits (Email & Phone)",
+      "10 User Accounts",
+      "Dedicated Account Manager",
+      "24/7 Priority Support (Email, Chat & Phone)",
+      "Add to Favorites - Unlimited",
+      "Advanced Visualizations & Dashboards",
+      "Company Profile View - Unlimited",
+      "Trade Relationship Analysis",
+      "Roll Over Credits to Next Year",
+      "Advanced Market Intelligence",
+      "Competitor Analysis & Tracking",
+      "Custom Report Generation",
+      "API Access",
+      "Data Export (All Formats)",
+      "Real-time Alerts & Notifications",
+      "SLA Guarantee",
     ],
   },
   {
@@ -83,20 +108,30 @@ const plans = [
     price: 0,
     yearlyPrice: 0,
     customPrice: "Custom",
-    buttonText: "Buy Now",
+    buttonText: "Contact Sales",
     buttonVariant: "outline" as const,
     features: [
-      { text: "Flexible data volume", icon: <Database size={20} /> },
-      { text: "Custom feature development", icon: <TrendingUp size={20} /> },
-      { text: "Dedicated infrastructure", icon: <Globe size={20} /> },
+      { text: "Custom Coverage", icon: <Globe size={20} /> },
+      { text: "Unlimited Access", icon: <Database size={20} /> },
+      { text: "Custom Credits", icon: <FileText size={20} /> },
     ],
     includes: [
-      "Customized includes:",
-      "Bespoke pricing model",
-      "Custom data requirements",
-      "Specialized training",
-      "Integration consulting",
-      "Volume-based discounts",
+      "Custom Historical Data Period",
+      "Unlimited Shipment Records View",
+      "Custom Contact Info Credits",
+      "Unlimited User Accounts",
+      "Dedicated Success Manager",
+      "24/7 Premium Support",
+      "White-Label Solutions",
+      "On-Premise Deployment Option",
+      "Custom Data Fields & Integration",
+      "Advanced API Access",
+      "Bespoke Training Programs",
+      "Custom Report Templates",
+      "Data Enrichment Services",
+      "Volume-Based Pricing",
+      "Priority Feature Development",
+      "Multi-Region Support",
     ],
   },
 ];
@@ -269,17 +304,27 @@ export default function PricingSection() {
                 </CardHeader>
 
                 <CardContent className="pt-0 flex-1 flex flex-col">
-                  <button
-                    className={`w-full mb-6 p-3 text-base font-semibold rounded-xl transition-all ${
-                      plan.popular
-                        ? "bg-gradient-to-t from-blue-500 to-blue-600 shadow-lg shadow-blue-500/50 border border-blue-400 text-white hover:shadow-blue-500/70"
-                        : "bg-gradient-to-t from-neutral-900 to-neutral-700 shadow-lg shadow-neutral-900/50 border border-neutral-700 text-white hover:shadow-neutral-900/70"
-                    }`}
-                  >
-                    {plan.buttonText}
-                  </button>
+                  <Link href="https://dashboard.exportgenius.in/sign-up" target="_blank" rel="noopener noreferrer" className="w-full mb-3">
+                    <button
+                      className={`w-full p-3 text-base font-semibold rounded-xl transition-all ${
+                        plan.popular
+                          ? "bg-gradient-to-t from-blue-500 to-blue-600 shadow-lg shadow-blue-500/50 border border-blue-400 text-white hover:shadow-blue-500/70"
+                          : "bg-gradient-to-t from-neutral-900 to-neutral-700 shadow-lg shadow-neutral-900/50 border border-neutral-700 text-white hover:shadow-neutral-900/70"
+                      }`}
+                    >
+                      {plan.buttonText}
+                    </button>
+                  </Link>
+
+                  <Link href="https://dashboard.exportgenius.in/sign-up" target="_blank" rel="noopener noreferrer" className="w-full mb-6">
+                    <button
+                      className="w-full p-3 text-base font-semibold rounded-xl transition-all bg-white border-2 border-blue-500 text-blue-600 hover:bg-blue-50"
+                    >
+                      Try for Free
+                    </button>
+                  </Link>
                   
-                  <ul className="space-y-2.5 font-medium py-4 border-b border-neutral-200">
+                  <ul className="space-y-2.5 font-medium">
                     {plan.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
                         <span className="text-neutral-800 grid place-content-center mt-0.5 mr-3 flex-shrink-0">
@@ -293,11 +338,8 @@ export default function PricingSection() {
                   </ul>
 
                   <div className="space-y-3 pt-4 flex-1">
-                    <h4 className="font-semibold text-sm text-gray-900 mb-3">
-                      {plan.includes[0]}
-                    </h4>
                     <ul className="space-y-2.5">
-                      {plan.includes.slice(1).map((feature, featureIndex) => (
+                      {plan.includes.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-start">
                           <span className="h-5 w-5 bg-green-50 border border-blue-500 rounded-full grid place-content-center mt-0.5 mr-2.5 flex-shrink-0">
                             <CheckCircle2 className="h-3 w-3 text-blue-500" />

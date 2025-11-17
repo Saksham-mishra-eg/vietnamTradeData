@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 
@@ -117,26 +118,28 @@ export default function CTASection(){
           </motion.h1>
 
           {/* Animated button */}
-          <motion.button 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.35, duration: 0.3 }}
-            whileHover={{ 
-              scale: 1.05,
-              boxShadow: "0 20px 40px rgba(14, 165, 233, 0.4)"
-            }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 text-ttblue-700 bg-white hover:bg-blue-50 transition-all rounded-full uppercase text-sm font-semibold mt-8 relative z-10 group shadow-lg"
-          >
-            <span className="relative z-10">Start Your Free Trial</span>
-            <motion.div
-              className="absolute inset-0 rounded-full bg-blue-100"
-              initial={{ scale: 0, opacity: 0 }}
-              whileHover={{ scale: 1, opacity: 0.3 }}
-              transition={{ duration: 0.3 }}
-            />
-          </motion.button>
+          <Link href="/contact-us">
+            <motion.button 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.35, duration: 0.3 }}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 20px 40px rgba(14, 165, 233, 0.4)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 text-ttblue-700 bg-white hover:bg-blue-50 transition-all rounded-full uppercase text-sm font-semibold mt-8 relative z-10 group shadow-lg"
+            >
+              <span className="relative z-10">Start Your Free Trial</span>
+              <motion.div
+                className="absolute inset-0 rounded-full bg-blue-100"
+                initial={{ scale: 0, opacity: 0 }}
+                whileHover={{ scale: 1, opacity: 0.3 }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.button>
+          </Link>
 
           {/* Animated footer text */}
           <motion.div 
