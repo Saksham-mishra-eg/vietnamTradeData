@@ -1,4 +1,3 @@
-import PricingHero from 'components/Pricing/PricingHero';
 import ComparisonTable from 'components/Pricing/ComparisonTable';
 import PricingFAQs from 'components/Pricing/PricingFAQs';
 import { pricingFaqs } from 'components/Shared/faqs';
@@ -19,7 +18,7 @@ export default function PricingPage() {
   return (
     <main>
       <SEO title="Pricing Plans | Transparent Vietnam Trade Data Subscription Rates" description="Simple, flexible pricing for Vietnam trade data. Plans starting at $99/month. 7-day free trial, no credit card required. Compare features and choose your plan." canonical="/pricing" keywords="Vietnam trade data pricing, subscription plans, trade data cost" />
-      <PricingHero />
+      {/* <PricingHero /> */}
       <PricingProvider>
         <PricingShell />
         <ComparisonTable />
