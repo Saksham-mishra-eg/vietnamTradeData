@@ -42,7 +42,7 @@ export default function HeroSection(){
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
               <li className="flex items-center gap-3">
                 <CheckCircle2 className="h-6 w-6 text-blue-300 flex-shrink-0" />
-                <span>10M+ Shipment Records</span>
+                <span>70M+ Shipment Records</span>
               </li>
               <li className="flex items-center gap-3">
                 <CheckCircle2 className="h-6 w-6 text-blue-300 flex-shrink-0" />
@@ -69,7 +69,7 @@ export default function HeroSection(){
               className="bg-white text-blue-900 hover:bg-slate-100 font-semibold rounded-full"
               asChild
             >
-              <Link href="/explore-data">Start Free Trial</Link>
+              <Link href="/contact-us">Start Free Trial</Link>
             </Button>
             <Button 
               size="lg" 

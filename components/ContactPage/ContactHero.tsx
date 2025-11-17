@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, Globe, MessageSquare, Send, Clock, MapPin, ChevronRight } from 'lucide-react';
+import { Phone, Mail, MessageSquare, Send, Clock, ChevronRight } from 'lucide-react';
 import { Button } from 'components/ui/button';
 import { Input } from 'components/ui/input';
 import { Label } from 'components/ui/label';
@@ -11,8 +11,6 @@ export default function ContactHero(){
   const contactDetails = [
     { icon: Phone, label: 'Phone', value: '+91 8003 8003 57', href: 'tel:+918003800357' },
     { icon: Mail, label: 'Email', value: 'info@exportgenius.in', href: 'mailto:info@exportgenius.in' },
-    { icon: Globe, label: 'Website', value: 'VietnamTradeData.com', href: 'https://www.vietnamtradedata.com' },
-    { icon: MapPin, label: 'Location', value: 'Sector-7, Rohini, New Delhi, India', href: 'https://www.google.com/maps/search/?api=1&query=C-7/224-225,+Sector-7,+Rohini,+New+Delhi,+India' }
   ];
 
   return (

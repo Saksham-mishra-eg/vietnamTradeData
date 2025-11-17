@@ -65,20 +65,8 @@ export function About({
 
   return (
     <section className="relative mx-auto max-w-6xl px-4 py-16">
-      {/* soft glow background with animation */}
-      <motion.div
-        animate={{
-          scale: [1, 1.1, 1],
-          opacity: [0.4, 0.6, 0.4]
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-        className="pointer-events-none absolute -top-64 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[#FBFFE1] blur-[300px] -z-10"
-        aria-hidden="true"
-      />
+      {/* soft glow background - static on mobile */}
+      <div className="pointer-events-none absolute -top-64 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[#FBFFE1] blur-[300px] -z-10 opacity-50" aria-hidden="true" />
 
       {/* header */}
       <motion.header 
@@ -163,28 +151,16 @@ function Feature({
     <motion.div 
       variants={featureVariants}
       whileHover={{ 
-        y: -8,
-        scale: 1.02,
+        y: -4,
         transition: { 
-          type: "spring", 
-          stiffness: 400, 
-          damping: 10 
+          duration: 0.2
         }
       }}
       className="group flex items-start gap-4 rounded-xl border border-slate-200/60 bg-white/50 p-5 shadow-sm backdrop-blur-sm transition hover:shadow-md relative overflow-hidden"
     >
-      {/* Animated gradient overlay on hover */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileHover={{ opacity: 0.05, scale: 1 }}
-        transition={{ duration: 0.3 }}
-        className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-500"
-      />
-
       <motion.div 
-        initial={{ rotate: 0, scale: 1 }}
-        whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
-        transition={{ duration: 0.5 }}
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.2 }}
         className="size-10 shrink-0 rounded bg-indigo-50 border border-indigo-200 p-2 relative z-10"
       >
         <Image src={icon} alt="" className="h-full w-full object-contain" fill sizes="40px" />
@@ -211,16 +187,7 @@ function Feature({
         </motion.p>
       </div>
 
-      {/* Shine effect on hover */}
-      <motion.div
-        initial={{ x: "-100%", opacity: 0 }}
-        whileHover={{ 
-          x: "100%",
-          opacity: [0, 0.5, 0],
-        }}
-        transition={{ duration: 0.6 }}
-        className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white to-transparent skew-x-12"
-      />
+
     </motion.div>
   );
 }

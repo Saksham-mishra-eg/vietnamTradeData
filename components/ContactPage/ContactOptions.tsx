@@ -1,7 +1,14 @@
 "use client";
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, MessageCircle, Phone, Mail, ArrowRight, Clock } from 'lucide-react';
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+declare global {
+  interface Window {
+    $zoho?: any;
+  }
+}
 
 const iconMap = {
   '📅': Calendar,
@@ -10,7 +17,7 @@ const iconMap = {
   '✉️': Mail
 };
 
-function Card({icon, title, children, cta, status, index}:{icon:string,title:string,children:React.ReactNode,cta:string,status?:string,index:number}){
+function Card({icon, title, children, cta, status, index, onClick}:{icon:string,title:string,children:React.ReactNode,cta:string,status?:string,index:number,onClick?:()=>void}){
   const IconComponent = iconMap[icon as keyof typeof iconMap] || Calendar;
   
   return (
@@ -51,14 +58,9 @@ function Card({icon, title, children, cta, status, index}:{icon:string,title:str
       <div className="relative z-10">
         <div className="flex items-start gap-4">
           {/* Animated icon */}
-          <motion.div 
-            initial={{ rotate: 0, scale: 1 }}
-            whileHover={{ rotate: 360, scale: 1.1 }}
-            transition={{ duration: 0.6, type: "spring" }}
-            className="flex-shrink-0 w-14 h-14 rounded-lg bg-gradient-to-br from-ttblue-500 to-ttblue-600 text-white flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow"
-          >
+          <div className="flex-shrink-0 w-14 h-14 rounded-lg bg-gradient-to-br from-ttblue-500 to-ttblue-600 text-white flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
             <IconComponent className="w-7 h-7" />
-          </motion.div>
+          </div>
           
           <div className="flex-1">
             <motion.h3 
@@ -91,6 +93,7 @@ function Card({icon, title, children, cta, status, index}:{icon:string,title:str
               <motion.button 
                 whileHover={{ scale: 1.05, x: 5 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={onClick}
                 className="tt-cta-gradient text-white px-5 py-2.5 rounded-lg font-medium text-sm flex items-center gap-2 shadow-md hover:shadow-lg transition-all group/btn"
               >
                 {cta}
@@ -133,11 +136,76 @@ function Card({icon, title, children, cta, status, index}:{icon:string,title:str
 }
 
 export default function ContactOptions(){
+  useEffect(() => {
+    // Initialize Zoho SalesIQ
+    if (typeof window !== 'undefined') {
+      window.$zoho = window.$zoho || {};
+      window.$zoho.salesiq = window.$zoho.salesiq || {
+        widgetcode: "717628a61e699ae0e43918d0fc6157f2e80eef239a9017a9d4732e39ad0babd554f6510e158408eac7e891895a00696d",
+        values: {},
+        ready: function() {}
+      };
+
+      // Load the Zoho SalesIQ script if not already loaded
+      if (!document.getElementById("zsiqscript")) {
+        const script = document.createElement("script");
+        script.type = "text/javascript";
+        script.id = "zsiqscript";
+        script.defer = true;
+        script.src = "https://salesiq.zoho.in/widget";
+        
+        const firstScript = document.getElementsByTagName("script")[0];
+        if (firstScript && firstScript.parentNode) {
+          firstScript.parentNode.insertBefore(script, firstScript);
+        }
+      }
+
+      // Setup callbacks
+      window.$zoho.salesiq.ready = function() {
+        window.$zoho.salesiq.chat.logo("https://www.exportgenius.in/images/logo.png");
+        window.$zoho.salesiq.visitor.getGeoDetails();
+        // Hide the default Zoho chat widget
+        window.$zoho.salesiq.floatbutton.visible("hide");
+      };
+
+      window.$zoho.salesiq.afterReady = function(info: any) {
+        const restrictedCountries = ["INDIA", "CHINA", "PAKISTAN", "BANGLADESH", "NIGERIA", "GHANA", "IRAN", "UGANDA", "TANZANIA", "NEPAL", "KENYA"];
+        
+        if (restrictedCountries.includes(info.Country)) {
+          window.$zoho.salesiq.tracking.off();
+        } else {
+          window.$zoho.salesiq.tracking.on();
+        }
+        // Ensure the default widget stays hidden
+        window.$zoho.salesiq.floatbutton.visible("hide");
+      };
+    }
+  }, []);
+
+  const handleChatClick = () => {
+    if (typeof window !== 'undefined' && window.$zoho && window.$zoho.salesiq) {
+      // Open Zoho chat widget
+      window.$zoho.salesiq.floatwindow.visible("show");
+    }
+  };
+
+  const handlePhoneClick = () => {
+    window.location.href = 'tel:+918003800357';
+  };
+
+  const handleEmailClick = () => {
+    window.location.href = 'mailto:info@exportgenius.in';
+  };
+
+  const handleBookDemoClick = () => {
+    window.open('https://exportgenius.zohobookings.in/portal-embed#/eg', '_blank', 'width=800,height=600');
+  };
+
   const options = [
-    { icon: '📅', title: 'Book a Demo', cta: 'Schedule Demo', content: 'See our platform with a personalized walkthrough. 30-minute live demo, real data samples and Q&A.' },
-    { icon: '💬', title: 'Live Chat', cta: 'Start Chat', status: '🟢 Online now', content: 'Get instant answers — available 24/7. Share screens and save chat history.' },
-    { icon: '📞', title: 'Phone Support', cta: 'View All Numbers', content: 'Speak with our team. Vietnam, USA, UK, Asia numbers available. Mon-Fri, 9am-6pm.' },
-    { icon: '✉️', title: 'Send an Email', cta: 'Send Email', content: 'General, Sales, Support and Partnerships categories. We respond within 4 hours.' }
+    { icon: '📅', title: 'Book a Demo', cta: 'Schedule Demo', content: 'See our platform with a personalized walkthrough. 30-minute live demo, real data samples and Q&A.', onClick: handleBookDemoClick },
+    { icon: '💬', title: 'Live Chat', cta: 'Start Chat', status: '🟢 Online now', content: 'Get instant answers — available 24/7. Share screens and save chat history.', onClick: handleChatClick },
+    { icon: '📞', title: 'Phone Support', cta: 'Call US', content: 'Speak with our team. Vietnam, USA, UK, Asia numbers available. Mon-Fri, 9am-6pm.', onClick: handlePhoneClick },
+    { icon: '✉️', title: 'Send an Email', cta: 'Send Email', content: 'General, Sales, Support and Partnerships categories. We respond within 4 hours.', onClick: handleEmailClick }
   ];
 
   return (
@@ -220,6 +288,7 @@ export default function ContactOptions(){
               cta={option.cta}
               status={option.status}
               index={index}
+              onClick={option.onClick}
             >
               {option.content}
             </Card>

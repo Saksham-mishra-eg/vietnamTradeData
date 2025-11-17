@@ -1,142 +1,40 @@
 {
   "pages": {
-    "/_not-found/page": [
-      "static/chunks/webpack-8b063814bce7178d.js",
-      "static/chunks/fd9d1056-30d02c77e66aba9b.js",
-      "static/chunks/117-d142f66db71a1be8.js",
-      "static/chunks/main-app-8dccd03bdafc7a08.js",
-      "static/chunks/app/_not-found/page-261f5be209d72efa.js"
+    "/vietnam-export-data/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/vietnam-export-data/page.js"
     ],
     "/layout": [
-      "static/chunks/webpack-8b063814bce7178d.js",
-      "static/chunks/fd9d1056-30d02c77e66aba9b.js",
-      "static/chunks/117-d142f66db71a1be8.js",
-      "static/chunks/main-app-8dccd03bdafc7a08.js",
-      "static/css/0720d654e2c05ea8.css",
-      "static/chunks/216-10cd1db2000232a0.js",
-      "static/chunks/851-6f60e3597133c52b.js",
-      "static/chunks/195-a406b75c7250e1b7.js",
-      "static/chunks/app/layout-ec67631119263d2d.js"
-    ],
-    "/explore-data/page": [
-      "static/chunks/webpack-8b063814bce7178d.js",
-      "static/chunks/fd9d1056-30d02c77e66aba9b.js",
-      "static/chunks/117-d142f66db71a1be8.js",
-      "static/chunks/main-app-8dccd03bdafc7a08.js",
-      "static/chunks/216-10cd1db2000232a0.js",
-      "static/chunks/135-a822758cb1bc03e9.js",
-      "static/chunks/145-f1c4c870d8fda7b5.js",
-      "static/chunks/app/explore-data/page-93671d8a7657b797.js"
-    ],
-    "/page": [
-      "static/chunks/webpack-8b063814bce7178d.js",
-      "static/chunks/fd9d1056-30d02c77e66aba9b.js",
-      "static/chunks/117-d142f66db71a1be8.js",
-      "static/chunks/main-app-8dccd03bdafc7a08.js",
-      "static/chunks/216-10cd1db2000232a0.js",
-      "static/chunks/135-a822758cb1bc03e9.js",
-      "static/chunks/145-f1c4c870d8fda7b5.js",
-      "static/chunks/851-6f60e3597133c52b.js",
-      "static/chunks/281-9e08227041df520d.js",
-      "static/chunks/601-40c885c9d569fd97.js",
-      "static/chunks/322-ba1d7b435b7edcc5.js",
-      "static/chunks/app/page-594a2146b6d23e27.js"
-    ],
-    "/contact-us/page": [
-      "static/chunks/webpack-8b063814bce7178d.js",
-      "static/chunks/fd9d1056-30d02c77e66aba9b.js",
-      "static/chunks/117-d142f66db71a1be8.js",
-      "static/chunks/main-app-8dccd03bdafc7a08.js",
-      "static/chunks/216-10cd1db2000232a0.js",
-      "static/chunks/135-a822758cb1bc03e9.js",
-      "static/chunks/145-f1c4c870d8fda7b5.js",
-      "static/chunks/851-6f60e3597133c52b.js",
-      "static/chunks/app/contact-us/page-a711f23ef31a076f.js"
-    ],
-    "/privacy-policy/page": [
-      "static/chunks/webpack-8b063814bce7178d.js",
-      "static/chunks/fd9d1056-30d02c77e66aba9b.js",
-      "static/chunks/117-d142f66db71a1be8.js",
-      "static/chunks/main-app-8dccd03bdafc7a08.js",
-      "static/chunks/216-10cd1db2000232a0.js",
-      "static/chunks/135-a822758cb1bc03e9.js",
-      "static/chunks/145-f1c4c870d8fda7b5.js",
-      "static/chunks/app/privacy-policy/page-221adf2c61217083.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
     ],
     "/pricing/page": [
-      "static/chunks/webpack-8b063814bce7178d.js",
-      "static/chunks/fd9d1056-30d02c77e66aba9b.js",
-      "static/chunks/117-d142f66db71a1be8.js",
-      "static/chunks/main-app-8dccd03bdafc7a08.js",
-      "static/chunks/216-10cd1db2000232a0.js",
-      "static/chunks/135-a822758cb1bc03e9.js",
-      "static/chunks/145-f1c4c870d8fda7b5.js",
-      "static/chunks/851-6f60e3597133c52b.js",
-      "static/chunks/211-a998ea8f7172b6a7.js",
-      "static/chunks/322-ba1d7b435b7edcc5.js",
-      "static/chunks/app/pricing/page-0ede2e3f2f0ea9c4.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/pricing/page.js"
     ],
-    "/about-us/page": [
-      "static/chunks/webpack-8b063814bce7178d.js",
-      "static/chunks/fd9d1056-30d02c77e66aba9b.js",
-      "static/chunks/117-d142f66db71a1be8.js",
-      "static/chunks/main-app-8dccd03bdafc7a08.js",
-      "static/chunks/216-10cd1db2000232a0.js",
-      "static/chunks/135-a822758cb1bc03e9.js",
-      "static/chunks/145-f1c4c870d8fda7b5.js",
-      "static/chunks/851-6f60e3597133c52b.js",
-      "static/chunks/281-9e08227041df520d.js",
-      "static/chunks/app/about-us/page-8984f07923a9dfb8.js"
+    "/contact-us/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/contact-us/page.js"
     ],
-    "/search-live-data/page": [
-      "static/chunks/webpack-8b063814bce7178d.js",
-      "static/chunks/fd9d1056-30d02c77e66aba9b.js",
-      "static/chunks/117-d142f66db71a1be8.js",
-      "static/chunks/main-app-8dccd03bdafc7a08.js",
-      "static/chunks/216-10cd1db2000232a0.js",
-      "static/chunks/135-a822758cb1bc03e9.js",
-      "static/chunks/851-6f60e3597133c52b.js",
-      "static/chunks/281-9e08227041df520d.js",
-      "static/chunks/481-6e5abe979c923190.js",
-      "static/chunks/app/search-live-data/page-15041db2ae7fdc5a.js"
-    ],
-    "/vietnam-export-data/page": [
-      "static/chunks/webpack-8b063814bce7178d.js",
-      "static/chunks/fd9d1056-30d02c77e66aba9b.js",
-      "static/chunks/117-d142f66db71a1be8.js",
-      "static/chunks/main-app-8dccd03bdafc7a08.js",
-      "static/chunks/216-10cd1db2000232a0.js",
-      "static/chunks/135-a822758cb1bc03e9.js",
-      "static/chunks/145-f1c4c870d8fda7b5.js",
-      "static/chunks/601-40c885c9d569fd97.js",
-      "static/chunks/811-bb1c5b611b7e43b9.js",
-      "static/chunks/322-ba1d7b435b7edcc5.js",
-      "static/chunks/472-bceb3c8ceac8b5f2.js",
-      "static/chunks/app/vietnam-export-data/page-c717a9f17b70c94d.js"
-    ],
-    "/terms-of-service/page": [
-      "static/chunks/webpack-8b063814bce7178d.js",
-      "static/chunks/fd9d1056-30d02c77e66aba9b.js",
-      "static/chunks/117-d142f66db71a1be8.js",
-      "static/chunks/main-app-8dccd03bdafc7a08.js",
-      "static/chunks/216-10cd1db2000232a0.js",
-      "static/chunks/135-a822758cb1bc03e9.js",
-      "static/chunks/145-f1c4c870d8fda7b5.js",
-      "static/chunks/app/terms-of-service/page-450881a443baaa55.js"
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
     ],
     "/vietnam-import-data/page": [
-      "static/chunks/webpack-8b063814bce7178d.js",
-      "static/chunks/fd9d1056-30d02c77e66aba9b.js",
-      "static/chunks/117-d142f66db71a1be8.js",
-      "static/chunks/main-app-8dccd03bdafc7a08.js",
-      "static/chunks/216-10cd1db2000232a0.js",
-      "static/chunks/135-a822758cb1bc03e9.js",
-      "static/chunks/145-f1c4c870d8fda7b5.js",
-      "static/chunks/601-40c885c9d569fd97.js",
-      "static/chunks/811-bb1c5b611b7e43b9.js",
-      "static/chunks/322-ba1d7b435b7edcc5.js",
-      "static/chunks/472-bceb3c8ceac8b5f2.js",
-      "static/chunks/app/vietnam-import-data/page-66d5c759527f74cf.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/vietnam-import-data/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

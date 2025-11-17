@@ -75,8 +75,8 @@ export default function VietnamTradeStats() {
                 </div>
                 
                 <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-4 border border-green-200">
-                  <div className="text-xs font-medium text-gray-600 mb-1">Total Value (2018)</div>
-                  <div className="text-3xl font-bold text-green-700">$290B</div>
+                  <div className="text-xs font-medium text-gray-600 mb-1">Total Value (2010)</div>
+                  <div className="text-3xl font-bold text-green-700">$2.86T</div>
                   <div className="text-xs text-gray-500 mt-1">US Dollars</div>
                 </div>
               </div>
@@ -104,8 +104,8 @@ export default function VietnamTradeStats() {
                 </div>
                 
                 <div className="bg-gradient-to-br from-ttblue-50 to-ttblue-100 rounded-xl p-4 border border-ttblue-200">
-                  <div className="text-xs font-medium text-gray-600 mb-1">Total Value (2018)</div>
-                  <div className="text-3xl font-bold text-ttblue-700">$258B</div>
+                  <div className="text-xs font-medium text-gray-600 mb-1">Total Value (2010)</div>
+                  <div className="text-3xl font-bold text-ttblue-700">$2.87T</div>
                   <div className="text-xs text-gray-500 mtttblue-1">US Dollars</div>
                 </div>
               </div>

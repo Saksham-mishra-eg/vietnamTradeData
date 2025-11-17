@@ -48,7 +48,6 @@ export default function ImportPage(){
       <DataPageHero pageType="import" />
       <DataOverview pageType="import" />
       <DataSample type="import" />
-      {/* <KeyBenefits /> */}
       <TradeStatistics type="import" />
       <TopCommodities type="import" />
       <TradingPartners type="import" />

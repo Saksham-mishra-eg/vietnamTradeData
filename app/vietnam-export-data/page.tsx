@@ -48,7 +48,6 @@ export default function ExportPage(){
       <DataPageHero pageType="export" />
       <DataOverview pageType="export" />
       <DataSample type="export" />
-      {/* <KeyBenefits /> */}
       <TradeStatistics type="export" />
       <TopCommodities type="export" />
       <TradingPartners type="export" />
