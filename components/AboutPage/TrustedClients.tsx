@@ -53,7 +53,7 @@ export default function TrustedClients() {
             transition={{ duration: 0.3, delay: 0.08 }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
           >
-            Trusted by <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">5,000+ Clients</span>
+            Trusted by <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> 20,000+ Clients</span>
           </motion.h2>
 
           <motion.p
@@ -115,41 +115,7 @@ export default function TrustedClients() {
           ))}
         </motion.div>
 
-        {/* Stats Footer */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.3, delay: 0.25 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
-        >
-          {[
-            { value: '5,000+', label: 'Active Clients' },
-            { value: '150+', label: 'Countries' },
-            { value: '99.9%', label: 'Satisfaction Rate' },
-            { value: '24/7', label: 'Support' }
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ 
-                duration: 0.3, 
-                delay: 0.3 + index * 0.03,
-                type: "spring",
-                stiffness: 100
-              }}
-              whileHover={{ scale: 1.05 }}
-              className="p-6 bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl border border-blue-100"
-            >
-              <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
-                {stat.value}
-              </div>
-              <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
+        
       </div>
     </section>
   );
