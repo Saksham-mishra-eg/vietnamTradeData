@@ -7,9 +7,9 @@ import { ChevronRight, Award, TrendingUp, Shield, Users } from 'lucide-react';
 export default function AboutHero(){
   const stats = [
     { icon: Award, value: "10+", label: "Years Experience" },
-    { icon: Users, value: "5,000+", label: "Happy Clients" },
-    { icon: TrendingUp, value: "150+", label: "Countries" },
-    { icon: Shield, value: "99.9%", label: "Data Accuracy" }
+    { icon: Users, value: "20,000+", label: "Happy Clients" },
+    { icon: TrendingUp, value: "190+", label: "Countries" },
+    { icon: Shield, value: "100%", label: "Data Accuracy" }
   ];
 
   return (

@@ -30,7 +30,7 @@ export default function DataOverview({pageType}:Props){
     },
     {
       icon: Package,
-      title: 'Product Information',
+      title: 'Product Description',
       description: 'HS codes, product descriptions, quantities',
       gradient: 'from-indigo-500 to-purple-500'
     },
@@ -42,19 +42,19 @@ export default function DataOverview({pageType}:Props){
     },
     {
       icon: Globe,
-      title: 'Origin Data',
+      title: 'Trade Partner Countrie',
       description: 'Exporter country, supplier details, port of loading',
       gradient: 'from-pink-500 to-rose-500'
     },
     {
       icon: TrendingUp,
-      title: 'Logistics Info',
+      title: 'Ports and many more',
       description: 'Mode of transport, shipping lines, container details',
       gradient: 'from-rose-500 to-orange-500'
     },
     {
       icon: FileText,
-      title: 'Customs Data',
+      title: 'Data Samples',
       description: 'Duty rates, customs value, entry date',
       gradient: 'from-orange-500 to-amber-500'
     }
@@ -67,31 +67,31 @@ export default function DataOverview({pageType}:Props){
     },
     {
       icon: Package,
-      title: 'Product Specifications',
+      title: 'Product Description',
       description: 'HS codes, descriptions, packaging details',
       gradient: 'from-emerald-500 to-teal-500'
     },
     {
       icon: Ship,
-      title: 'Shipment Metrics',
+      title: 'Shipment Details',
       description: 'Quantity, FOB value, unit measurements',
       gradient: 'from-teal-500 to-cyan-500'
     },
     {
       icon: Globe,
-      title: 'Destination Info',
+      title: 'Trade Partner Countries',
       description: 'Importer country, buyer details, destination port',
       gradient: 'from-cyan-500 to-blue-500'
     },
     {
       icon: TrendingUp,
-      title: 'Trade Routes',
+      title: 'Ports and many more',
       description: 'Transportation mode, carrier information',
       gradient: 'from-blue-500 to-indigo-500'
     },
     {
       icon: FileText,
-      title: 'Documentation',
+      title: 'Data Samples',
       description: 'Invoice details, customs clearance dates',
       gradient: 'from-indigo-500 to-purple-500'
     }
@@ -166,15 +166,15 @@ export default function DataOverview({pageType}:Props){
             >
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
-                  <div className="text-3xl font-bold mb-1">5M+</div>
-                  <div className="text-sm opacity-90">Records</div>
+                  <div className="text-3xl font-bold mb-1">From 2019</div>
+                  <div className="text-sm opacity-90">Data Availibility</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold mb-1">50+</div>
-                  <div className="text-sm opacity-90">Data Fields</div>
+                  <div className="text-3xl font-bold mb-1">100%</div>
+                  <div className="text-sm opacity-90">Data Coverage</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold mb-1">Daily</div>
+                  <div className="text-3xl font-bold mb-1">Monthly</div>
                   <div className="text-sm opacity-90">Updates</div>
                 </div>
               </div>

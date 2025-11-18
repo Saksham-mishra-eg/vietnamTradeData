@@ -195,7 +195,7 @@ export default function DataSampleSection() {
             {[
               { number: '70M+', label: 'Shipment Records', icon: Package, color: 'from-blue-500 to-cyan-500' },
               { number: '50K+', label: 'Active Companies', icon: Building2, color: 'from-purple-500 to-pink-500' },
-              { number: '120+', label: 'Countries Covered', icon: Globe, color: 'from-orange-500 to-red-500' },
+              { number: '190+', label: 'Countries Covered', icon: Globe, color: 'from-orange-500 to-red-500' },
               { number: '24/7', label: 'Data Updates', icon: TrendingUp, color: 'from-green-500 to-emerald-500' },
             ].map((stat, index) => (
               <motion.div

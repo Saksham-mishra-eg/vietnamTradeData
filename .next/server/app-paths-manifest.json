@@ -1,5 +1,5 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/vietnam-export-data/page": "app/vietnam-export-data/page.js",
-  "/vietnam-import-data/page": "app/vietnam-import-data/page.js"
+  "/about-us/page": "app/about-us/page.js",
+  "/page": "app/page.js"
 }
