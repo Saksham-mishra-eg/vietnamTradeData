@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Package, TrendingUp, Globe, Sparkles } from 'lucide-react';
+import { Package, TrendingUp, Globe } from 'lucide-react';
 
 interface TopCommoditiesProps {
   type: 'import' | 'export';
@@ -164,12 +164,12 @@ export default function TopCommodities({ type }: TopCommoditiesProps) {
           <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border-2 border-blue-100">
             <div className="flex items-center gap-3 mb-2">
               <div className="w-10 h-10 rounded-lg bg-blue-500 text-white flex items-center justify-center">
-                <Globe className="w-5 h-5" />
+                <Package className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-sm text-gray-600">Total Trade Value</p>
+                <p className="text-sm text-gray-600">{type === 'import' ? 'Import Shipments' : 'Export Shipments'}</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  ${type === 'import' ? '258' : '290'}B
+                  {type === 'import' ? '38M+' : '32M+'}
                 </p>
               </div>
             </div>
@@ -178,12 +178,12 @@ export default function TopCommodities({ type }: TopCommoditiesProps) {
           <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border-2 border-purple-100">
             <div className="flex items-center gap-3 mb-2">
               <div className="w-10 h-10 rounded-lg bg-purple-500 text-white flex items-center justify-center">
-                <TrendingUp className="w-5 h-5" />
+                <Globe className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-sm text-gray-600">Top 10 Share</p>
+                <p className="text-sm text-gray-600">Total Buyers</p>
                 <p className="text-2xl font-bold text-gray-900">
-                  {totalPercentage.toFixed(1)}%
+                  {type === 'import' ? '1.23M+' : '969.79K'}
                 </p>
               </div>
             </div>
@@ -192,11 +192,13 @@ export default function TopCommodities({ type }: TopCommoditiesProps) {
           <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border-2 border-green-100">
             <div className="flex items-center gap-3 mb-2">
               <div className="w-10 h-10 rounded-lg bg-green-500 text-white flex items-center justify-center">
-                <Sparkles className="w-5 h-5" />
+                <TrendingUp className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-sm text-gray-600">Year Recorded</p>
-                <p className="text-2xl font-bold text-gray-900">2018</p>
+                <p className="text-sm text-gray-600">Total Exporters</p>
+                <p className="text-2xl font-bold text-gray-900">
+                  {type === 'import' ? '204.89K+' : '109.16K+'}
+                </p>
               </div>
             </div>
           </div>
