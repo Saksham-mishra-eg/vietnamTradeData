@@ -50,7 +50,7 @@ export default function HeroSection(){
               </li>
               <li className="flex items-center gap-3">
                 <CheckCircle2 className="h-6 w-6 text-blue-300 flex-shrink-0" />
-                <span>100+ Countries Coverage</span>
+                <span>190+ Countries Coverage</span>
               </li>
               <li className="flex items-center gap-3">
                 <CheckCircle2 className="h-6 w-6 text-blue-300 flex-shrink-0" />

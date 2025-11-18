@@ -9,14 +9,16 @@ type Props = { pageType: 'import' | 'export' };
 
 export default function DataPageHero({pageType}:Props){
   const title = pageType === 'import' ? 'Vietnam Import Data' : 'Vietnam Export Data';
-  const recordStat = pageType === 'import' ? '38M+ Import Records' : '32M+ Export Records';
-  const countryStat = pageType === 'import' ? '150+ Origin Countries' : '200+ Destination Countries';
+  const recordStat = pageType === 'import' ? '38M+ Import Shipments' : '32M+ Export Shipments';
+  const countryStat = pageType === 'import' ? '1.23M+ Total Buyers' : '969.79K Total Buyers';
+  const exportsStat = pageType === 'import' ? '204.89K+ Total Exporters' : '109.16K+ Total Exporters';
+  const turnoverStat = pageType === 'import' ? '2.87T+ Total Turnover' : '2.85T+ Total Turnover';
 
   const stats = [
     { icon: Database, label: recordStat, delay: 0.2 },
     { icon: Globe, label: countryStat, delay: 0.3 },
-    { icon: Calendar, label: 'Updated Daily', delay: 0.4 },
-    { icon: TrendingUp, label: '10+ Years Historical Data', delay: 0.5 }
+    { icon: Calendar, label: exportsStat, delay: 0.4 },
+    { icon: TrendingUp, label: turnoverStat, delay: 0.5 }
   ];
 
   return (

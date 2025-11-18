@@ -5,10 +5,10 @@ import { motion } from 'framer-motion';
 import { TrendingUp, Users, Globe, Database } from 'lucide-react';
 
 const stats = [
-  {num: '10+', label: 'Years', sub: 'Industry Experience', icon: TrendingUp, color: 'from-blue-400 to-blue-600'},
-  {num: '5,000+', label: 'Clients', sub: 'Worldwide', icon: Users, color: 'from-purple-400 to-purple-600'},
-  {num: '150+', label: 'Countries', sub: 'Data Coverage', icon: Globe, color: 'from-green-400 to-green-600'},
-  {num: '10M+', label: 'Records', sub: 'Updated Daily', icon: Database, color: 'from-orange-400 to-orange-600'}
+  {num: '70M+', label: 'Shipments', sub: 'Import & Export Records', icon: Database, color: 'from-blue-400 to-blue-600'},
+  {num: '2.2M+', label: 'Buyers', sub: 'Worldwide', icon: Users, color: 'from-purple-400 to-purple-600'},
+  {num: '314K+', label: 'Exporters', sub: 'Total Suppliers', icon: Globe, color: 'from-green-400 to-green-600'},
+  {num: '5.72T+', label: 'Turnover', sub: 'Total Trade Value', icon: TrendingUp, color: 'from-orange-400 to-orange-600'}
 ];
 
 const containerVariants = {
@@ -149,7 +149,7 @@ export default function CompanyStats(){
           className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm"
         >
           {[
-            { value: '99.9%', label: 'Accuracy' },
+            { value: '100%', label: 'Accuracy' },
             { value: '24/7', label: 'Support' },
             { value: '50+', label: 'Industries' },
             { value: 'API', label: 'Access' }
