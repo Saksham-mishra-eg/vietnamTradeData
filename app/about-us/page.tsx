@@ -1,11 +1,6 @@
 import React from 'react';
-import AboutHero from 'components/AboutPage/AboutHero';
-import CompanyStory from 'components/AboutPage/CompanyStory';
-import CompanyStats from 'components/AboutPage/CompanyStats';
-import OurValues from 'components/AboutPage/OurValues';
-import TeamSection from 'components/AboutPage/TeamSection';
-import TrustedClients from 'components/AboutPage/TrustedClients';
-import CTASection from 'components/Home/CTASection';
+import { AboutHero, CompanyStory, CompanyStats, OurValues, TeamSection, TrustedClients } from 'components/AboutPage';
+import { CTASection } from 'components/Home';
 import SEO from 'components/SEO';
 
 export const metadata = {
