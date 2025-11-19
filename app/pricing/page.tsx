@@ -1,7 +1,6 @@
-import ComparisonTable from 'components/Pricing/ComparisonTable';
-import PricingFAQs from 'components/Pricing/PricingFAQs';
+import { ComparisonTable, PricingFAQs } from 'components/Pricing';
 import { pricingFaqs } from 'components/Shared/faqs';
-import CTASection from 'components/Home/CTASection';
+import { CTASection } from 'components/Home';
 import dynamic from 'next/dynamic';
 import SEO from 'components/SEO';
 import { PricingProvider } from 'contexts/PricingContext';
@@ -12,7 +11,7 @@ export const metadata = {
 };
 
 // Client-only shell that manages interactive state (loaded dynamically)
-const PricingShell = dynamic(() => import('components/Pricing/PricingShell'), { ssr: false });
+const PricingShell = dynamic(() => import('components/Pricing').then(mod => ({ default: mod.PricingShell })), { ssr: false });
 
 export default function PricingPage() {
   return (
