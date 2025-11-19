@@ -1,12 +1,6 @@
-import DataPageHero from 'components/DataPages/DataPageHero';
-import DataOverview from 'components/DataPages/DataOverview';
-import DataSample from 'components/DataPages/DataSample';
-import DataFAQs from 'components/DataPages/DataFAQs';
-import TradeStatistics from 'components/DataPages/TradeStatistics';
-import TopCommodities from 'components/DataPages/TopCommodities';
-import TradingPartners from 'components/DataPages/TradingPartners';
+import { DataPageHero, DataOverview, DataSample, DataFAQs, TradeStatistics, TopCommodities, TradingPartners } from 'components/DataPages';
 import { exportDataFaqs } from 'components/Shared/faqs';
-import CTASection from 'components/Home/CTASection';
+import { CTASection } from 'components/Home';
 import SEO from 'components/SEO';
 
 export const metadata = {

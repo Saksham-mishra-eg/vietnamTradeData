@@ -1,11 +1,6 @@
-import HeroSection from 'components/Home/HeroSection';
-import DataSampleSection from 'components/Home/DataSampleSection';
-import VietnamTradeStats from 'components/Home/VietnamTradeStats';
-import HomeFAQ from 'components/Home/HomeFAQ';
-import CTASection from 'components/Home/CTASection';
-import CookieBanner from 'components/Home/CookieBanner';
+import { HeroSection, DataSampleSection, VietnamTradeStats, HomeFAQ, CTASection, CookieBanner } from 'components/Home';
+import { DashboardShowcase } from 'components/DataPages';
 import SEO from 'components/SEO';
-import DashboardShowcase from 'components/DataPages/DashboardShowcase';
 
 export default function Home(){
   return (
