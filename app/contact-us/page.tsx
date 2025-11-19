@@ -1,9 +1,7 @@
 import React from 'react';
-import ContactHero from 'components/ContactPage/ContactHero';
-import ContactOptions from 'components/ContactPage/ContactOptions';
-import OfficeLocations from 'components/ContactPage/OfficeLocations';
+import { ContactHero, ContactOptions, OfficeLocations } from 'components/ContactPage';
 import { contactFaqs } from 'components/Shared/faqs';
-import CTASection from 'components/Home/CTASection';
+import { CTASection } from 'components/Home';
 import SEO from 'components/SEO';
 
 export const metadata = {
