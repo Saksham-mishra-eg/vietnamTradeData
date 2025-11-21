@@ -1,6 +1,9 @@
 export { default as HeroSection } from './HeroSection';
 export { default as DataSampleSection } from './DataSampleSection';
 export { default as VietnamTradeStats } from './VietnamTradeStats';
+export { default as WhatWeDo } from './WhatWeDo';
 export { default as HomeFAQ } from './HomeFAQ';
 export { default as CTASection } from './CTASection';
 export { default as CookieBanner } from './CookieBanner';
+export { default as TradeDataAPI } from './TradeDataAPI';
+export { default as TradeIntelligenceSection } from './TradeIntelligenceSection';

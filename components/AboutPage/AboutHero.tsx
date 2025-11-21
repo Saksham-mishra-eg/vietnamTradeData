@@ -1,10 +1,16 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ChevronRight, Award, TrendingUp, Shield, Users } from 'lucide-react';
+import React, { useEffect } from 'react';
+import ScrollExpandMedia from 'components/ui/scroll-expansion-hero';
+import { Award, TrendingUp, Shield, Users } from 'lucide-react';
 
-export default function AboutHero(){
+export default function AboutHero() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const resetEvent = new Event('resetSection');
+    window.dispatchEvent(resetEvent);
+  }, []);
+
   const stats = [
     { icon: Award, value: "10+", label: "Years Experience" },
     { icon: Users, value: "20,000+", label: "Happy Clients" },
@@ -13,181 +19,104 @@ export default function AboutHero(){
   ];
 
   return (
-    <section className="relative bg-gradient-to-br from-ttblue-700 via-ttblue-600 to-ttblue-500 text-white py-24 overflow-hidden">
-      {/* Animated background patterns - reduced on mobile */}
-      <motion.div
-        animate={{
-          scale: [1, 1.1, 1],
-          opacity: [0.1, 0.15, 0.1]
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-        className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
-      />
-      <motion.div
-        animate={{
-          scale: [1, 1.1, 1],
-          opacity: [0.1, 0.15, 0.1]
-        }}
-        transition={{
-          duration: 25,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-        className="absolute bottom-0 left-0 w-80 h-80 bg-white/10 rounded-full blur-3xl"
-      />
+    <ScrollExpandMedia
+      mediaType="image"
+      mediaSrc="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1280&auto=format&fit=crop"
+      bgImageSrc="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1920&auto=format&fit=crop"
+      title="About Vietnam Trade Data"
+      date="Trusted Since 2011"
+      scrollToExpand="Scroll to Explore"
+      textBlend
+    >
+      <div className="max-w-6xl mx-auto">
+        {/* Mission Section */}
+        <div className="mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
+            <span className="text-gray-900 dark:text-gray">Empowering Global Trade with{' '}</span>
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Data Intelligence
+            </span>
+          </h2>
+          <p className="text-lg md:text-xl text-gray-900 dark:text-gray-400 leading-relaxed mb-6 font-medium">
+            Your trusted partner in accessing comprehensive Vietnam trade data. We combine deep domain expertise 
+            with modern data engineering to unlock actionable insights for businesses worldwide.
+          </p>
+          <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+            Since 2011, we&apos;ve been helping importers, exporters, manufacturers, and market researchers make 
+            informed decisions through real-time access to Vietnam&apos;s import-export data across 190+ countries.
+          </p>
+        </div>
 
-      {/* Floating decorative elements - hidden on mobile */}
-      <motion.div
-        animate={{
-          y: [0, -10, 0],
-          opacity: [0.2, 0.3, 0.2]
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-        className="hidden md:block absolute top-20 right-1/4 w-32 h-32 border-2 border-white/20 rounded-lg rotate-12"
-      />
-      <motion.div
-        animate={{
-          y: [0, 10, 0],
-          opacity: [0.2, 0.3, 0.2]
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1
-        }}
-        className="hidden md:block absolute bottom-32 left-1/4 w-24 h-24 border-2 border-white/20 rounded-full"
-      />
-
-      <div className="container relative mx-auto max-w-7xl px-4 md:px-6 lg:px-8 z-10">
-        {/* Breadcrumb with animation */}
-        <motion.nav 
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="flex items-center justify-center text-sm mb-8"
-        >
-          <motion.span 
-            whileHover={{ scale: 1.05 }}
-            className="opacity-90 hover:opacity-100 transition-opacity cursor-pointer"
-          >
-            Home
-          </motion.span>
-          <ChevronRight className="w-4 h-4 mx-2 opacity-70" />
-          <span className="font-semibold">About Us</span>
-        </motion.nav>
-
-        {/* Main heading with staggered animation */}
-        <div className="text-center max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0.15 }}
-              className="inline-block mb-4"
-            >
-              <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-6 py-2 text-sm font-medium">
-                ✨ Trusted Since 2011
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+          {stats.map((stat, index) => {
+            const Icon = stat.icon;
+            return (
+              <div
+                key={index}
+                className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 group"
+              >
+                <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Icon className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-3xl font-bold mb-1 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  {stat.label}
+                </div>
               </div>
-            </motion.div>
+            );
+          })}
+        </div>
 
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
-            >
-              Empowering Global Trade
-              <br />
-              <span className="bg-gradient-to-r from-blue-200 via-white to-blue-200 bg-clip-text text-transparent">
-                with Data Intelligence
-              </span>
-            </motion.h1>
-
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.35 }}
-              className="text-lg md:text-xl text-blue-50 max-w-3xl mx-auto leading-relaxed"
-            >
-              Your trusted partner in accessing comprehensive Vietnam trade data. 
-              We combine deep domain expertise with modern data engineering to unlock actionable insights.
-            </motion.p>
-          </motion.div>
-
-          {/* Stats grid with staggered animation */}
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.4 }}
-            className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
-          >
-            {stats.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ 
-                    duration: 0.3, 
-                    delay: 0.5 + index * 0.05,
-                    type: "spring",
-                    stiffness: 100
-                  }}
-                  whileHover={{ 
-                    scale: 1.05,
-                    y: -5,
-                    transition: { duration: 0.2 }
-                  }}
-                  className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:bg-white/15 transition-all group"
-                >
-                  <div
-                    className="w-12 h-12 mx-auto mb-3 bg-white/20 rounded-lg flex items-center justify-center group-hover:bg-white/30 transition-colors"
-                  >
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <motion.div 
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ 
-                      delay: 0.6 + index * 0.05,
-                      type: "spring",
-                      stiffness: 200
-                    }}
-                    className="text-2xl md:text-3xl font-bold mb-1"
-                  >
-                    {stat.value}
-                  </motion.div>
-                  <div className="text-sm text-blue-100 opacity-90">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
+        {/* What We Do Section */}
+        <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 rounded-3xl p-8 md:p-12 border border-blue-200 dark:border-gray-700">
+          <h3 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+            What We Provide
+          </h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">
+                Comprehensive Data Coverage
+              </h4>
+              <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-600 mt-1">✓</span>
+                  <span>70M+ shipment records with real-time updates</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-600 mt-1">✓</span>
+                  <span>Complete importer and exporter profiles</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-600 mt-1">✓</span>
+                  <span>Detailed product descriptions and HS codes</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold text-purple-600 dark:text-purple-400 mb-3">
+                Advanced Analytics
+              </h4>
+              <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-600 mt-1">✓</span>
+                  <span>Market trend analysis and forecasting</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-600 mt-1">✓</span>
+                  <span>Competitor intelligence and monitoring</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-600 mt-1">✓</span>
+                  <span>Custom reports and API integration</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Bottom wave decoration */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 0.5, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.7 }}
-        className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white/10 to-transparent"
-      />
-    </section>
+    </ScrollExpandMedia>
   );
 }
