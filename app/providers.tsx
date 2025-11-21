@@ -3,6 +3,7 @@
 import React from 'react';
 import {ThemeProvider, createTheme, responsiveFontSizes} from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
 
 type Props = { children: React.ReactNode };
 
@@ -25,9 +26,11 @@ theme = responsiveFontSizes(theme);
 
 export default function Providers({children}: Props){
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      {children}
-    </ThemeProvider>
+    <NextThemesProvider attribute="class" defaultTheme="light" enableSystem>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        {children}
+      </ThemeProvider>
+    </NextThemesProvider>
   );
 }
