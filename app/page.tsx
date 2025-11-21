@@ -1,4 +1,4 @@
-import { HeroSection, DataSampleSection, VietnamTradeStats, HomeFAQ, CTASection, CookieBanner } from 'components/Home';
+import { HeroSection, DataSampleSection, VietnamTradeStats, WhatWeDo, CTASection, CookieBanner, TradeDataAPI, TradeIntelligenceSection } from 'components/Home';
 import { DashboardShowcase } from 'components/DataPages';
 import SEO from 'components/SEO';
 
@@ -12,10 +12,13 @@ export default function Home(){
         keywords="vietnam trade data, import export statistics, customs data, shipment records, supplier finder"
       />
       <HeroSection />
-      <VietnamTradeStats />
-      <DataSampleSection />
+      <TradeIntelligenceSection />
       <DashboardShowcase />
-      <HomeFAQ />
+      <VietnamTradeStats />
+      <TradeDataAPI />
+      <DataSampleSection />
+      <WhatWeDo />
+      {/* <HomeFAQ /> */}
       <CTASection />
       <CookieBanner />
     </>

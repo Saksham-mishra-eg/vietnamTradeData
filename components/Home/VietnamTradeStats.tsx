@@ -1,205 +1,137 @@
 "use client";
 
 import React from 'react';
-import { TrendingUp, TrendingDown, Factory, Cpu, Package, Building2, Zap, Coffee, Wheat, Ship, Hammer, Factory as FactoryIcon } from 'lucide-react';
+import { TrendingUp, ArrowUpRight, Sparkles, Globe2, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const industries = [
-  { name: 'Electronics', icon: Cpu },
-  { name: 'Food Processing', icon: Package },
-  { name: 'Construction', icon: Building2 },
-  { name: 'Mining', icon: Hammer },
-  { name: 'Footwear', icon: Package },
-  { name: 'Seafood', icon: Ship },
-  { name: 'Crude Oil', icon: Zap },
-  { name: 'Rice', icon: Wheat },
-  { name: 'Coffee', icon: Coffee },
-  { name: 'Steel', icon: FactoryIcon }
+  { name: 'Electronics & Electrical', value: '35%', trend: '+12%', color: 'from-blue-500 to-cyan-500' },
+  { name: 'Textiles & Apparel', value: '18%', trend: '+8%', color: 'from-purple-500 to-pink-500' },
+  { name: 'Machinery & Equipment', value: '15%', trend: '+15%', color: 'from-orange-500 to-red-500' },
+  { name: 'Footwear & Leather', value: '12%', trend: '+6%', color: 'from-green-500 to-emerald-500' },
+  { name: 'Seafood & Agriculture', value: '10%', trend: '+9%', color: 'from-yellow-500 to-orange-500' },
+  { name: 'Furniture & Wood', value: '10%', trend: '+11%', color: 'from-indigo-500 to-purple-500' },
 ];
 
 export default function VietnamTradeStats() {
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container relative mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
-        {/* 50-50 Split Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          
-          {/* LEFT SIDE: Vietnam Import Export Data Online */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="bg-white rounded-2xl shadow-xl p-8 border border-ttblue-100"
-          >
-            {/* Section Title */}
-            <div className="mb-8">
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.05, duration: 0.3 }}
-                className="text-3xl font-bold text-gray-900 mb-3"
-              >
-                Vietnam Import Export Data Online
-              </motion.h2>
-              <motion.div
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1, duration: 0.3 }}
-                className="w-24 h-1 bg-gradient-to-r from-ttblue-600 to-ttblue-500"
-              />
-            </div>
+    <section className="relative py-24 bg-gradient-to-b from-white via-blue-50/30 to-white overflow-hidden">
+      {/* Background Decorations */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 -left-20 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 -right-20 w-96 h-96 bg-purple-200/20 rounded-full blur-3xl" />
+      </div>
 
-            {/* Vietnam Exports */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.15, duration: 0.3 }}
-              className="mb-6"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="bg-gradient-to-br from-green-500 to-green-600 p-3 rounded-xl">
-                  <TrendingUp className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900">Vietnam Exports</h3>
-              </div>
-              
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-4 border border-green-200">
-                  <div className="text-xs font-medium text-gray-600 mb-1">Global Ranking</div>
-                  <div className="text-3xl font-bold text-green-700">20th</div>
-                  <div className="text-xs text-gray-500 mt-1">in Global Exports</div>
-                </div>
-                
-                <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-4 border border-green-200">
-                  <div className="text-xs font-medium text-gray-600 mb-1">Total Value (2010)</div>
-                  <div className="text-3xl font-bold text-green-700">$2.86T</div>
-                  <div className="text-xs text-gray-500 mt-1">US Dollars</div>
-                </div>
-              </div>
-            </motion.div>
+      <div className="container relative z-10 mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-medium mb-6">
+            <Globe2 className="w-4 h-4" />
+            Vietnam Trade Overview
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Leading <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Global Trade</span> Partner
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Comprehensive import-export data from one of Asia&apos;s fastest-growing economies
+          </p>
+        </motion.div>
+      
 
-            {/* Vietnam Imports */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.3 }}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="bg-gradient-to-br from-ttblue-500 to-ttblue-600 p-3 rounded-xl">
-                  <TrendingDown className="w-6 h-6 text-white" />
+        {/* Major Industries Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="relative"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl blur-2xl opacity-10" />
+          <div className="relative bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <div className="flex items-center gap-3 mb-2">
+                  <Sparkles className="w-6 h-6 text-blue-600" />
+                  <h3 className="text-3xl font-bold text-gray-900">Major Industries</h3>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Vietnam Imports</h3>
+                <p className="text-gray-600">Key sectors driving Vietnam&apos;s trade growth</p>
               </div>
-              
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gradient-to-br from-ttblue-50 to-ttblue-100 rounded-xl p-4 border border-ttblue-200">
-                  <div className="text-xs font-medium text-gray-600 mb-1">Global Ranking</div>
-                  <div className="text-3xl font-bold text--700">19th</div>
-                  <div className="text-xs text-gray-500 mt-1">in Global Imports</div>
-                </div>
-                
-                <div className="bg-gradient-to-br from-ttblue-50 to-ttblue-100 rounded-xl p-4 border border-ttblue-200">
-                  <div className="text-xs font-medium text-gray-600 mb-1">Total Value (2010)</div>
-                  <div className="text-3xl font-bold text-ttblue-700">$2.87T</div>
-                  <div className="text-xs text-gray-500 mtttblue-1">US Dollars</div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Bottom Note */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-              className="mt-6 pt-6 border-t border-gray-200"
-            >
-              <p className="text-sm text-gray-600 text-center">
-                Leading global trade partner with comprehensive data coverage
-              </p>
-            </motion.div>
-          </motion.div>
-
-          {/* RIGHT SIDE: Vietnam Major Industries */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="bg-white rounded-2xl shadow-xl p-8 border border-ttblue-100"
-          >
-            {/* Section Title */}
-            <div className="mb-8">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="bg-gradient-to-br from-ttblue-600 to-ttblue-800 p-3 rounded-xl">
-                  <Factory className="w-6 h-6 text-white" />
-                </div>
-                <motion.h2
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.05, duration: 0.3 }}
-                  className="text-3xl font-bold text-gray-900"
-                >
-                  Vietnam Major Industries
-                </motion.h2>
-              </div>
-              <motion.div
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1, duration: 0.3 }}
-                className="w-24 h-1 bg-gradient-to-r from-ttblue-600 to-ttblue-500"
-              />
+              <button className="hidden md:flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-medium hover:shadow-lg transition-all group">
+                View All
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
             </div>
 
             {/* Industries Grid */}
-            <div className="grid grid-cols-2 gap-4">
-              {industries.map((industry, index) => {
-                const Icon = industry.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.03 * index, duration: 0.3 }}
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    className="bg-gradient-to-br from-ttblue-50 to-white rounded-xl p-4 border border-ttblue-200 hover:border-ttblue-400 hover:shadow-lg transition-all duration-300 group cursor-pointer"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="bg-gradient-to-br from-ttblue-500 to-ttblue-600 p-2 rounded-lg group-hover:from-ttblue-600 group-hover:to-ttblue-800 transition-all duration-300">
-                        <Icon className="w-5 h-5 text-white" />
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {industries.map((industry, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.05 * index }}
+                  whileHover={{ scale: 1.03 }}
+                  className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-50 to-white p-6 border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all cursor-pointer"
+                >
+                  {/* Gradient Background */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${industry.color} opacity-0 group-hover:opacity-5 transition-opacity`} />
+                  
+                  {/* Content */}
+                  <div className="relative">
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
+                          {industry.name}
+                        </h4>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs text-gray-500">Market Share</span>
+                        </div>
                       </div>
-                      <div className="text-sm font-semibold text-gray-700 group-hover:text-ttblue-700 transition-colors">
-                        {industry.name}
+                      <div className={`p-2 rounded-xl bg-gradient-to-br ${industry.color} shadow-sm`}>
+                        <ArrowUpRight className="w-4 h-4 text-white" />
                       </div>
                     </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-            
-            {/* Bottom Note */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.25, duration: 0.3 }}
-              className="mt-6 pt-6 border-t border-gray-200"
-            >
-              <p className="text-sm text-gray-600 text-center">
-                Vietnam&apos;s diverse industrial landscape drives its position as a leading global trade partner
-              </p>
-            </motion.div>
-          </motion.div>
 
-        </div>
+                    <div className="flex items-end justify-between">
+                      <div>
+                        <div className="text-3xl font-bold text-gray-900">{industry.value}</div>
+                        <div className="text-sm text-green-600 font-medium flex items-center gap-1 mt-1">
+                          <TrendingUp className="w-3 h-3" />
+                          {industry.trend} YoY
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Mini Progress Bar */}
+                    <div className="mt-4 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: industry.value }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.2 + index * 0.05 }}
+                        className={`h-full bg-gradient-to-r ${industry.color} rounded-full`}
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Mobile View All Button */}
+            <button className="md:hidden w-full mt-6 flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-medium hover:shadow-lg transition-all group">
+              View All Industries
+              <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
