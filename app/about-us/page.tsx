@@ -1,5 +1,5 @@
 import React from 'react';
-import { AboutHero, CompanyStory, CompanyStats, OurValues, TeamSection, TrustedClients } from 'components/AboutPage';
+import { AboutHero, CompanyStory, CompanyStats, OurValues, TrustedClients } from 'components/AboutPage';
 import { CTASection } from 'components/Home';
 import SEO from 'components/SEO';
 
@@ -16,7 +16,7 @@ export default function AboutPage() {
       <CompanyStory />
       <CompanyStats />
       <OurValues />
-      <TeamSection />
+      {/* <TeamSection /> */}
       <TrustedClients />
       <CTASection />
     </main>
