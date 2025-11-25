@@ -3,7 +3,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Shield, Lock, AlertCircle, CreditCard, UserX, Gavel, Mail, Phone } from 'lucide-react';
-import SEO from 'components/SEO';
 
 export default function TermsOfServicePage() {
   const sections = [
@@ -50,14 +49,7 @@ export default function TermsOfServicePage() {
   ];
 
   return (
-    <>
-      <SEO
-        title="Terms of Service | Vietnam Trade Data"
-        description="Terms of Service for using Vietnam Trade Data's trade intelligence platform."
-        canonical="/terms-of-service"
-      />
-
-      <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
         {/* Animated Background */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.8),rgba(239,246,255,0.6))]" />
@@ -184,6 +176,5 @@ export default function TermsOfServicePage() {
           </motion.div>
         </div>
       </div>
-    </>
   );
 }

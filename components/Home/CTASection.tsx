@@ -101,7 +101,7 @@ export default function CTASection(){
             transition={{ delay: 0.25, duration: 0.4 }}
             className="text-4xl md:text-5xl md:leading-[60px] font-semibold max-w-3xl mt-5 bg-gradient-to-r from-white via-blue-100 to-cyan-100 text-transparent bg-clip-text relative z-10"
           >
-            Ready to Access Vietnam Trade Intelligence?
+            Transform Trade Data Into Global Opportunities
             <motion.span
               animate={{
                 rotate: [0, 10, -10, 10, 0],
@@ -131,7 +131,7 @@ export default function CTASection(){
               whileTap={{ scale: 0.95 }}
               className="px-8 py-3 text-ttblue-700 bg-white hover:bg-blue-50 transition-all rounded-full uppercase text-sm font-semibold mt-8 relative z-10 group shadow-lg"
             >
-              <span className="relative z-10">Start Your Free Trial</span>
+              <span className="relative z-10">Request Demo</span>
               <motion.div
                 className="absolute inset-0 rounded-full bg-blue-100"
                 initial={{ scale: 0, opacity: 0 }}

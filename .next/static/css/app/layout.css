@@ -1838,10 +1838,6 @@ video {
 .border-dashed {
   border-style: dashed;
 }
-.\!border-gray-200 {
-  --tw-border-opacity: 1 !important;
-  border-color: rgb(229 231 235 / var(--tw-border-opacity, 1)) !important;
-}
 .\!border-red-500 {
   --tw-border-opacity: 1 !important;
   border-color: rgb(239 68 68 / var(--tw-border-opacity, 1)) !important;

@@ -3,7 +3,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Database, Lock, Eye, Users, FileText, Mail, Phone } from 'lucide-react';
-import SEO from 'components/SEO';
 
 export default function PrivacyPolicyPage() {
   const siteEmail = 'privacy@vietnamtradedata.com';
@@ -73,14 +72,7 @@ export default function PrivacyPolicyPage() {
   ];
 
   return (
-    <>
-      <SEO
-        title="Privacy Policy | Vietnam Trade Data"
-        description="Privacy policy describing how Vietnam Trade Data collects and processes personal data."
-        canonical="/privacy-policy"
-      />
-
-      <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
         {/* Animated Background */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.8),rgba(239,246,255,0.6))]" />
@@ -221,6 +213,5 @@ export default function PrivacyPolicyPage() {
           </motion.div>
         </div>
       </div>
-    </>
   );
 }

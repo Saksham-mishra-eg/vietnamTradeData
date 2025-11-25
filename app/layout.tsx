@@ -24,8 +24,12 @@ const organizationSchema = {
 };
 
 export const metadata = {
-  title: 'VietnamTradeData',
-  description: 'Your Gateway to Vietnam Trade Intelligence',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.vietnamtradedata.com'),
+  title: {
+    default: 'VietnamTradeData - Global Trade Intelligence Platform',
+    template: '%s | VietnamTradeData',
+  },
+  description: 'Leading provider of Vietnam import-export trade data, customs intelligence, and global shipment insights across 190+ countries.',
   icons: {
     icon: [
       { url: '/images/eg-favicon.png' },
