@@ -3,7 +3,6 @@ import { Metadata } from 'next';
 import SearchHero from 'components/SearchPage/SearchHero';
 import SearchInterface from 'components/SearchPage/SearchInterface';
 import KeyFeatures from 'components/SearchPage/KeyFeatures';
-import SampleResults from 'components/SearchPage/SampleResults';
 import SearchBenefits from 'components/SearchPage/SearchBenefits';
 import SearchCTA from 'components/SearchPage/SearchCTA';
 import TrustIndicators from 'components/SearchPage/TrustIndicators';
@@ -20,7 +19,7 @@ export default function SearchLiveDataPage() {
       <SearchHero />
       <SearchInterface />
       <KeyFeatures />
-      <SampleResults />
+      {/* <SampleResults /> */}
       <SearchBenefits />
       <TrustIndicators />
       <SearchCTA />

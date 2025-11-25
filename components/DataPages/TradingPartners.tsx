@@ -272,29 +272,6 @@ export default function TradingPartners({ type }: TradingPartnersProps) {
                 <p className="text-xs text-gray-500 mt-1">Combined Trade</p>
               </div>
             </div>
-
-            {/* Top 3 Highlights */}
-            <div className="mt-6 space-y-3">
-              <p className="text-sm font-semibold text-gray-700 mb-3">Top 3 Partners:</p>
-              {partners.slice(0, 3).map((partner, index) => (
-                <div 
-                  key={partner.country}
-                  className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-white flex items-center justify-center font-bold text-sm">
-                      {index + 1}
-                    </div>
-                    <span className="font-semibold text-gray-900 text-sm">
-                      {partner.country}
-                    </span>
-                  </div>
-                  <span className="text-sm font-bold text-blue-600">
-                    {partner.share}%
-                  </span>
-                </div>
-              ))}
-            </div>
           </motion.div>
         </div>
       </div>

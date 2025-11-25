@@ -208,7 +208,7 @@ export default function SearchInterface() {
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="relative group"
               >
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 hover:border-transparent hover:shadow-xl transition-all duration-300 text-center">
+                <div className="backdrop-blur-sm rounded-2xl p-6 border border-gray-200 hover:border-transparent hover:shadow-xl transition-all duration-300 text-center">
                   <div className={`w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br ${stat.color} p-2.5 group-hover:scale-110 transition-transform duration-300`}>
                     <stat.icon className="w-full h-full text-white" />
                   </div>

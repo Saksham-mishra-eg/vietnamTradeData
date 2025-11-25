@@ -1,108 +1,121 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { 
   Clock, Users, FileText, BarChart3, TrendingUp, Globe,
   Shield, Zap
 } from 'lucide-react';
+import { FeatureGrid } from 'components/ui/feature-section';
 
 export default function KeyFeatures() {
-  const features = [
+  const featureCategories = [
     {
-      icon: Clock,
+      icon: <Clock size={24} />,
       title: 'Real-Time Tracking',
-      description: 'Monitor shipments as they happen with live updates from customs databases',
-      color: 'from-blue-500 to-blue-600'
+      items: [
+        { text: 'Monitor shipments as they happen' },
+        { text: 'Live updates from customs databases' },
+        { text: 'Instant shipment notifications' },
+      ],
     },
     {
-      icon: Users,
+      icon: <Users size={24} />,
       title: 'Buyer-Seller Intelligence',
-      description: 'Access detailed profiles, contact information, and trade histories',
-      color: 'from-green-500 to-green-600'
+      items: [
+        { text: 'Access detailed company profiles' },
+        { text: 'Contact information database' },
+        { text: 'Complete trade histories' },
+      ],
     },
     {
-      icon: FileText,
+      icon: <FileText size={24} />,
       title: 'HS Code Classification',
-      description: 'Comprehensive HS code database with detailed product descriptions',
-      color: 'from-purple-500 to-purple-600'
+      items: [
+        { text: 'Comprehensive HS code database' },
+        { text: 'Detailed product descriptions' },
+        { text: 'Tariff and duty information' },
+      ],
     },
     {
-      icon: BarChart3,
+      icon: <BarChart3 size={24} />,
       title: 'Custom Reports',
-      description: 'Generate detailed analytics and export data in multiple formats',
-      color: 'from-orange-500 to-orange-600'
+      items: [
+        { text: 'Generate detailed analytics' },
+        { text: 'Export data in multiple formats' },
+        { text: 'Customizable report templates' },
+      ],
     },
     {
-      icon: TrendingUp,
+      icon: <TrendingUp size={24} />,
       title: 'Price Analysis',
-      description: 'Track pricing trends and market dynamics across regions',
-      color: 'from-pink-500 to-pink-600'
+      items: [
+        { text: 'Track pricing trends over time' },
+        { text: 'Market dynamics across regions' },
+        { text: 'Competitive pricing insights' },
+      ],
     },
     {
-      icon: Globe,
+      icon: <Globe size={24} />,
       title: 'Market Intelligence',
-      description: 'Discover new opportunities and competitive insights globally',
-      color: 'from-cyan-500 to-cyan-600'
+      items: [
+        { text: 'Discover new opportunities' },
+        { text: 'Global competitive insights' },
+        { text: 'Market trend analysis' },
+      ],
     },
     {
-      icon: Shield,
+      icon: <Shield size={24} />,
       title: 'Verified Data',
-      description: 'All data sourced directly from official customs authorities',
-      color: 'from-indigo-500 to-indigo-600'
+      items: [
+        { text: 'Official customs authorities' },
+        { text: 'Real-time data verification' },
+        { text: 'Accuracy guarantee' },
+      ],
     },
     {
-      icon: Zap,
+      icon: <Zap size={24} />,
       title: 'Instant Access',
-      description: 'Search and retrieve results in seconds, not hours or days',
-      color: 'from-yellow-500 to-yellow-600'
-    }
+      items: [
+        { text: 'Search results in seconds' },
+        { text: 'No waiting periods' },
+        { text: '24/7 platform availability' },
+      ],
+    },
   ];
 
   return (
     <section className="py-16 md:py-20 bg-white relative">
       <div className="container relative mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-            Powerful Features at Your Fingertips
-          </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Everything you need to make informed trade decisions
-          </p>
-        </motion.div>
-
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                className="bg-white rounded-xl p-6 border border-slate-200 hover:border-ttblue-300 hover:shadow-xl transition-all group"
-              >
-                <div
-                  className={`w-14 h-14 rounded-lg bg-gradient-to-br ${feature.color} flex items-center justify-center text-white mb-4 shadow-md`}
+        <FeatureGrid
+          title={
+            <>
+              Powerful Features{' '}
+              <span className="relative inline-block">
+                at Your Fingertips
+                <svg
+                  viewBox="0 0 120 6"
+                  className="absolute left-0 bottom-0 -mb-1 w-full"
+                  aria-hidden="true"
                 >
-                  <Icon className="w-7 h-7" />
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">{feature.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{feature.description}</p>
-              </motion.div>
-            );
-          })}
-        </div>
+                  <path
+                    d="M1 4.5C25.46 1.63 78.43 1.39 119 4.5"
+                    stroke="#f472b6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+            </>
+          }
+          subtitle="Everything you need to make informed trade decisions with comprehensive data and powerful analytics tools."
+          illustrationSrc="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&auto=format&fit=crop"
+          illustrationAlt="Trade data analytics illustration"
+          categories={featureCategories}
+          buttonText="Explore All Features"
+          buttonHref="/contact-us"
+        />
       </div>
     </section>
   );

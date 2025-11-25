@@ -343,7 +343,7 @@ export default function ComparisonTable() {
                   {/* Category Items */}
                   {category.items.map((item, itemIndex) => (
                     <tr key={itemIndex} className="hover:bg-gray-50 transition-colors">
-                      <td className="px-6 py-4 text-sm text-gray-700 sticky left-0 bg-white">
+                      <td className="px-4 py-4 text-sm text-gray-700 sticky left-0 bg-white">
                         <div>
                           <div className="font-medium">{item.name}</div>
                           {item.description && (
@@ -351,7 +351,7 @@ export default function ComparisonTable() {
                           )}
                         </div>
                       </td>
-                      <td className="px-6 py-4 text-center text-sm">
+                      <td className="px-4 py-4 text-center text-sm">
                         {typeof item.starter === 'boolean' ? (
                           item.starter ? (
                             <Check className="w-5 h-5 text-green-600 mx-auto" />
@@ -362,7 +362,7 @@ export default function ComparisonTable() {
                           <span className="text-gray-700">{item.starter}</span>
                         )}
                       </td>
-                      <td className="px-6 py-4 text-center text-sm">
+                      <td className="px-4 py-4 text-center text-sm">
                         {typeof item.essential === 'boolean' ? (
                           item.essential ? (
                             <Check className="w-5 h-5 text-green-600 mx-auto" />
@@ -373,7 +373,7 @@ export default function ComparisonTable() {
                           <span className="text-gray-700 font-medium">{item.essential}</span>
                         )}
                       </td>
-                      <td className="px-6 py-4 text-center text-sm">
+                      <td className="px-4 py-4 text-center text-sm">
                         {typeof item.expert === 'boolean' ? (
                           item.expert ? (
                             <Check className="w-5 h-5 text-green-600 mx-auto" />
@@ -384,7 +384,7 @@ export default function ComparisonTable() {
                           <span className="text-gray-700">{item.expert}</span>
                         )}
                       </td>
-                      <td className="px-6 py-4 text-center text-sm">
+                      <td className="px-4 py-4 text-center text-sm">
                         {typeof item.customized === 'boolean' ? (
                           item.customized ? (
                             <Check className="w-5 h-5 text-green-600 mx-auto" />
