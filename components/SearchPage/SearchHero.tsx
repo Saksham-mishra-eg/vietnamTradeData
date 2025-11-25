@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Search, TrendingUp, Globe2, Zap } from 'lucide-react';
+import { Zap } from 'lucide-react';
 
 export default function SearchHero() {
   return (
@@ -63,36 +63,6 @@ export default function SearchHero() {
           >
             Search millions of import-export shipment records instantly with our comprehensive trade intelligence platform
           </motion.p>
-
-          {/* Quick Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
-          >
-            {[
-              { icon: Globe2, value: '150+', label: 'Countries' },
-              { icon: TrendingUp, value: '10M+', label: 'Records' },
-              { icon: Search, value: '24/7', label: 'Live Access' },
-              { icon: Zap, value: 'Daily', label: 'Updates' },
-            ].map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.8 + index * 0.1, type: "spring" }}
-                  className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-5 hover:bg-white/15 transition-all"
-                >
-                  <Icon className="w-8 h-8 mx-auto mb-2" />
-                  <div className="text-2xl font-bold">{stat.value}</div>
-                  <div className="text-sm text-blue-100">{stat.label}</div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
         </div>
       </div>
 

@@ -13,7 +13,6 @@ import {
   MapPin,
   BarChart3,
   Users,
-  Filter,
   Search,
   ChevronDown,
   ChevronUp
@@ -129,9 +128,48 @@ export default function CompanyOverviewClient({ companyId: _companyId }: { compa
   const [searchQuery, setSearchQuery] = React.useState('');
   const [currentPage, setCurrentPage] = React.useState(1);
   const [expandedFaq, setExpandedFaq] = React.useState<number | null>(null);
+  const [activeSection, setActiveSection] = React.useState<string>('overview');
   const pageSize = 10;
 
   const data = mockCompanyData;
+
+  const scrollToSection = (sectionId: string) => {
+    setActiveSection(sectionId);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 100;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['overview', 'shipments', 'analytics', 'buyers', 'competitors', 'faq'];
+      const scrollPosition = window.scrollY + 150;
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetBottom = offsetTop + element.offsetHeight;
+
+          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Filter shipments
   const filteredShipments = data.recentShipments.filter(s =>
@@ -197,7 +235,7 @@ export default function CompanyOverviewClient({ companyId: _companyId }: { compa
       </section>
 
       {/* KPI Cards */}
-      <section className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8 -mt-8 relative z-10">
+      <section id="overview" className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8 -mt-8 relative z-10">
         <div className="grid md:grid-cols-2 gap-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -274,79 +312,109 @@ export default function CompanyOverviewClient({ companyId: _companyId }: { compa
       {/* Main Content */}
       <section className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-12 gap-6">
-          {/* Left Sidebar - Filters */}
+          {/* Left Sidebar - Navigation Tabs */}
           <aside className="lg:col-span-3">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="bg-white rounded-xl shadow-md p-6 sticky top-4"
+              className="bg-white rounded-xl shadow-md overflow-hidden sticky top-4"
             >
-              <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                <Filter className="w-5 h-5" />
-                Filters
-              </h3>
-              <div className="space-y-4">
-                <div>
-                  <label className="text-sm font-semibold text-gray-700 mb-2 block">Trade Flow</label>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => setActiveTab('import')}
-                      className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition ${
-                        activeTab === 'import' ? 'bg-ttblue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                      }`}
-                    >
-                      Import
-                    </button>
-                    <button
-                      onClick={() => setActiveTab('export')}
-                      className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition ${
-                        activeTab === 'export' ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                      }`}
-                    >
-                      Export
-                    </button>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="text-sm font-semibold text-gray-700 mb-2 block">Date Range</label>
-                  <select className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
-                    <option>Last 12 months</option>
-                    <option>Last 6 months</option>
-                    <option>Last 3 months</option>
-                    <option>Custom range</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="text-sm font-semibold text-gray-700 mb-2 block">Country</label>
-                  <select className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
-                    <option>All Countries</option>
-                    <option>China</option>
-                    <option>Japan</option>
-                    <option>South Korea</option>
-                    <option>Thailand</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="text-sm font-semibold text-gray-700 mb-2 block">Product Category</label>
-                  <select className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
-                    <option>All Products</option>
-                    <option>Machinery</option>
-                    <option>Electronics</option>
-                    <option>Furniture</option>
-                    <option>Plastics</option>
-                  </select>
-                </div>
-
-                <button className="w-full bg-ttblue-600 text-white py-2 rounded-lg hover:bg-ttblue-700 transition font-medium text-sm">
-                  Apply Filters
+              <div className="bg-gradient-to-r from-ttblue-600 to-ttblue-500 px-6 py-4">
+                <h3 className="font-bold text-white flex items-center gap-2">
+                  <BarChart3 className="w-5 h-5" />
+                  Quick Navigation
+                </h3>
+              </div>
+              <nav className="p-2">
+                <button
+                  onClick={() => scrollToSection('overview')}
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all ${
+                    activeSection === 'overview'
+                      ? 'bg-gradient-to-r from-ttblue-500 to-ttblue-600 text-white shadow-lg'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  <TrendingUp className="w-5 h-5" />
+                  <span className="font-medium">Overview</span>
                 </button>
-                <button className="w-full border border-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-50 transition font-medium text-sm">
-                  Reset
+                <button
+                  onClick={() => scrollToSection('shipments')}
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all ${
+                    activeSection === 'shipments'
+                      ? 'bg-gradient-to-r from-ttblue-500 to-ttblue-600 text-white shadow-lg'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  <Ship className="w-5 h-5" />
+                  <span className="font-medium">Shipments</span>
                 </button>
+                <button
+                  onClick={() => scrollToSection('analytics')}
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all ${
+                    activeSection === 'analytics'
+                      ? 'bg-gradient-to-r from-ttblue-500 to-ttblue-600 text-white shadow-lg'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  <BarChart3 className="w-5 h-5" />
+                  <span className="font-medium">Analytics</span>
+                </button>
+                <button
+                  onClick={() => scrollToSection('buyers')}
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all ${
+                    activeSection === 'buyers'
+                      ? 'bg-gradient-to-r from-ttblue-500 to-ttblue-600 text-white shadow-lg'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  <Users className="w-5 h-5" />
+                  <span className="font-medium">Top Buyers</span>
+                </button>
+                <button
+                  onClick={() => scrollToSection('competitors')}
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all ${
+                    activeSection === 'competitors'
+                      ? 'bg-gradient-to-r from-ttblue-500 to-ttblue-600 text-white shadow-lg'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  <Globe className="w-5 h-5" />
+                  <span className="font-medium">Competitors</span>
+                </button>
+                <button
+                  onClick={() => scrollToSection('faq')}
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all ${
+                    activeSection === 'faq'
+                      ? 'bg-gradient-to-r from-ttblue-500 to-ttblue-600 text-white shadow-lg'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  <Package className="w-5 h-5" />
+                  <span className="font-medium">FAQ</span>
+                </button>
+              </nav>
+              
+              <div className="px-4 py-4 bg-gradient-to-br from-blue-50 to-indigo-50 border-t border-gray-200">
+                <p className="text-xs text-gray-600 mb-2">Trade Flow</p>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setActiveTab('import')}
+                    className={`flex-1 py-2 px-3 rounded-lg text-xs font-medium transition ${
+                      activeTab === 'import' ? 'bg-ttblue-600 text-white shadow-md' : 'bg-white text-gray-700 hover:bg-gray-100'
+                    }`}
+                  >
+                    Import
+                  </button>
+                  <button
+                    onClick={() => setActiveTab('export')}
+                    className={`flex-1 py-2 px-3 rounded-lg text-xs font-medium transition ${
+                      activeTab === 'export' ? 'bg-green-600 text-white shadow-md' : 'bg-white text-gray-700 hover:bg-gray-100'
+                    }`}
+                  >
+                    Export
+                  </button>
+                </div>
               </div>
             </motion.div>
           </aside>
@@ -376,6 +444,7 @@ export default function CompanyOverviewClient({ companyId: _companyId }: { compa
 
             {/* Recent Shipments Table */}
             <motion.div
+              id="shipments"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -471,7 +540,7 @@ export default function CompanyOverviewClient({ companyId: _companyId }: { compa
             </motion.div>
 
             {/* Total Imports by Month */}
-            <div className="grid md:grid-cols-2 gap-6">
+            <div id="analytics" className="grid md:grid-cols-2 gap-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -616,6 +685,7 @@ export default function CompanyOverviewClient({ companyId: _companyId }: { compa
 
             {/* Top Buyers */}
             <motion.div
+              id="buyers"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.9 }}
@@ -650,6 +720,7 @@ export default function CompanyOverviewClient({ companyId: _companyId }: { compa
 
             {/* Top Competitors */}
             <motion.div
+              id="competitors"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.0 }}
@@ -683,6 +754,7 @@ export default function CompanyOverviewClient({ companyId: _companyId }: { compa
 
             {/* FAQ Section */}
             <motion.div
+              id="faq"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.1 }}

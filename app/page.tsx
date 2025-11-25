@@ -14,9 +14,9 @@ export default function Home(){
       <HeroSection />
       <TradeIntelligenceSection />
       <DashboardShowcase />
+      <DataSampleSection />
       <VietnamTradeStats />
       <TradeDataAPI />
-      <DataSampleSection />
       <WhatWeDo />
       {/* <HomeFAQ /> */}
       <CTASection />

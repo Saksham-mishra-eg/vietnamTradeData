@@ -206,7 +206,7 @@ export default function HeroSection() {
                 rotate: [0, -5, 5, 0],
               }}
               transition={{ duration: 6, repeat: Infinity, delay: 1 }}
-              className="absolute -right-4 bottom-1/4 hidden lg:block"
+              className="absolute -right-4 bottom-2/4 hidden lg:block"
             >
               <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg">
                 <BarChart3 className="w-6 h-6 text-white" />
