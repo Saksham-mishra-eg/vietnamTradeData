@@ -3,7 +3,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Cookie, Shield, Settings, Mail, Phone, CheckCircle2 } from 'lucide-react';
-import SEO from 'components/SEO';
 
 export default function CookiePolicyPage() {
   const sections = [
@@ -85,18 +84,11 @@ Deleting cookies means that any preference settings users have made on a Website
   ];
 
   return (
-    <>
-      <SEO
-        title="Cookie Policy | Vietnam Trade Data"
-        description="Learn about how Vietnam Trade Data uses cookies and similar technologies on our website. Understand your choices and how to manage cookie settings."
-        canonical="/cookie-policy"
-      />
-
-      <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
         {/* Animated Background */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.8),rgba(239,246,255,0.6))]" />
-          
+
           <motion.div
             className="absolute top-20 left-1/4 w-96 h-96 bg-blue-300/20 rounded-full mix-blend-multiply filter blur-3xl"
             animate={{
@@ -175,10 +167,10 @@ Deleting cookies means that any preference settings users have made on a Website
                     {section.title === "How cookies are categorized" && <Settings className="w-6 h-6 text-white" />}
                     {section.title === "Cookie settings" && <CheckCircle2 className="w-6 h-6 text-white" />}
                   </div>
-                  
+
                   <div className="flex-1">
                     <h2 className="text-2xl font-bold text-gray-900 mb-4">{section.title}</h2>
-                    
+
                     {section.content && (
                       <p className="text-gray-600 leading-relaxed whitespace-pre-line mb-4">
                         {section.content}
@@ -192,7 +184,7 @@ Deleting cookies means that any preference settings users have made on a Website
                             <h3 className="text-xl font-semibold text-gray-900 mb-3">
                               {subsection.subtitle}
                             </h3>
-                            
+
                             {subsection.content && (
                               <p className="text-gray-600 leading-relaxed whitespace-pre-line">
                                 {subsection.content}
@@ -235,7 +227,7 @@ Deleting cookies means that any preference settings users have made on a Website
             <p className="text-blue-100 mb-6 leading-relaxed">
               If you have any questions or comments regarding our Cookie Notice, please contact us at:
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="mailto:info@vietnamtradedata.com"
@@ -244,7 +236,7 @@ Deleting cookies means that any preference settings users have made on a Website
                 <Mail className="w-5 h-5" />
                 <span>info@vietnamtradedata.com</span>
               </a>
-              
+
               <a
                 href="tel:+842400000000"
                 className="inline-flex items-center gap-3 bg-white/20 hover:bg-white/30 backdrop-blur-lg px-6 py-3 rounded-xl transition-all duration-300"
@@ -256,6 +248,5 @@ Deleting cookies means that any preference settings users have made on a Website
           </motion.div>
         </div>
       </div>
-    </>
   );
 }

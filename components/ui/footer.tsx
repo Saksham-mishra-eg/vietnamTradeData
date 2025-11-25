@@ -176,7 +176,7 @@ export function Footer() {
                 Terms of Service
               </Link>
               <Link
-                href="/"
+                href="/cookie-policy"
                 className="text-slate-400 hover:text-white transition-colors"
               >
                 Cookie Policy
