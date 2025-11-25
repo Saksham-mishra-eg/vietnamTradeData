@@ -33,8 +33,8 @@ const CARDS = [
     designation: "Supply Chain Director",
     content: (
       <p>
-        <Highlight>Vietnam Trade Data</Highlight> has revolutionized how we identify suppliers. The platform provides{" "}
-        <Highlight>real-time customs records</Highlight> that help us make informed sourcing decisions with confidence.
+        <Highlight>Real Vietnam Import–Export Data</Highlight> with verified customs shipments and{" "}
+        <Highlight>product-level granularity</Highlight> has transformed how we identify reliable suppliers and validate trade partners.
       </p>
     ),
   },
@@ -44,8 +44,8 @@ const CARDS = [
     designation: "Market Research Analyst",
     content: (
       <p>
-        The <Highlight>comprehensive analytics</Highlight> and trade intelligence tools are exceptional. We discovered new market opportunities and{" "}
-        <Highlight>tracked competitor activities</Highlight> with unprecedented accuracy.
+        The <Highlight>Shipment-Level Visibility</Highlight> feature lets us track buyer–supplier networks, volumes, pricing, and{" "}
+        <Highlight>shipment frequency</Highlight> with unprecedented accuracy and detail.
       </p>
     ),
   },
@@ -55,8 +55,8 @@ const CARDS = [
     designation: "Import Manager",
     content: (
       <p>
-        With <Highlight>70M+ shipment records</Highlight>, we reduced supplier verification time by 60%. The{" "}
-        <Highlight>detailed customs data</Highlight> and buyer-supplier networks are invaluable for our business growth.
+        <Highlight>Competitor Intelligence</Highlight> tools help us monitor trade behavior, market share trends, and{" "}
+        <Highlight>product movements</Highlight> giving us a strategic advantage in the marketplace.
       </p>
     ),
   },
@@ -101,9 +101,9 @@ export default function TradeIntelligenceSection() {
 
           {/* Content */}
           <h3 className="text-lg sm:text-xl lg:text-2xl font-normal text-gray-900 leading-relaxed">
-            Trusted by Global Businesses <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">Vietnam Trade Data</span>{" "}
+            Trusted & Accurate <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">Vietnam Trade Data</span>{" "}
             <span className="text-gray-600 text-sm sm:text-base lg:text-lg block mt-2">
-              Join 20,000+ companies using our platform to discover suppliers, analyze trade patterns, and make data-driven decisions with confidence.
+              Instant access to structured Vietnam customs records enriched with HS code mapping, product descriptions, shipment values, importer–exporter details, logistics routes, and port-level data.
             </span>
           </h3>
         </div>
@@ -172,7 +172,7 @@ export default function TradeIntelligenceSection() {
         <div className="relative bg-white p-6 rounded-2xl border-2 border-gray-200 shadow-lg">
           <blockquote className="border-l-4 border-blue-600 pl-4 sm:pl-6 lg:pl-8 text-gray-700">
             <p className="text-sm sm:text-base lg:text-lg leading-relaxed italic">
-              &ldquo;Vietnam Trade Data platform transformed our market research capabilities. The depth of customs data and supplier intelligence helped us expand into new markets with confidence and precision.&rdquo;
+              &ldquo;This trade intelligence platform transformed how we discover suppliers and analyze market trends. Access to verified shipment records and competitor insights gave us a significant competitive advantage in our industry.&rdquo;
             </p>
             <div className="mt-4 sm:mt-6 space-y-2 sm:space-y-3">
               <cite className="block font-semibold text-sm sm:text-base text-gray-900 not-italic">James Thompson</cite>

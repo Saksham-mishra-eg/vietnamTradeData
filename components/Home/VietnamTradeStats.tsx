@@ -36,10 +36,10 @@ export default function VietnamTradeStats() {
             Vietnam Trade Overview
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Leading <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Global Trade</span> Partner
+            Your Leading <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Global Trade</span> Partner
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Comprehensive import-export data from one of Asia&apos;s fastest-growing economies
+            Gain access to global customs intelligence with a unified trade data platform trusted across industries.
           </p>
         </motion.div>
       

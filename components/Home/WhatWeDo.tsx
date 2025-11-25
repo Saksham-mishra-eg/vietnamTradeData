@@ -8,7 +8,7 @@ const processItems = [
   {
     icon: Database,
     title: 'Data Collection',
-    description: 'Comprehensive import-export data from Vietnamese customs',
+    description: 'Verified customs sources with comprehensive shipment-level details',
     color: 'from-blue-500 to-cyan-500',
     stats: '70M+ Records',
     bgColor: 'bg-blue-500/20',
@@ -17,7 +17,7 @@ const processItems = [
   {
     icon: Search,
     title: 'Supplier Discovery',
-    description: 'Find verified suppliers and buyers worldwide',
+    description: 'Identify reliable manufacturers & exporters across global markets',
     color: 'from-purple-500 to-pink-500',
     stats: '190+ Countries',
     bgColor: 'bg-purple-500/20',
@@ -25,8 +25,8 @@ const processItems = [
   },
   {
     icon: LineChart,
-    title: 'Market Analysis',
-    description: 'Real-time trade statistics and market trends',
+    title: 'Trade Analytics',
+    description: 'Compare markets, benchmark prices, forecast trends with AI insights',
     color: 'from-orange-500 to-red-500',
     stats: 'Real-time',
     bgColor: 'bg-orange-500/20',
@@ -34,8 +34,8 @@ const processItems = [
   },
   {
     icon: Users,
-    title: 'Competitor Intelligence',
-    description: 'Track competitor activities and strategies',
+    title: 'Buyer Networks',
+    description: 'Map buyer-supplier relationships and track trade partnerships',
     color: 'from-green-500 to-emerald-500',
     stats: '2.2M+ Buyers',
     bgColor: 'bg-green-500/20',
@@ -44,7 +44,7 @@ const processItems = [
   {
     icon: ShieldCheck,
     title: 'Risk Assessment',
-    description: 'Evaluate business risks with verified data',
+    description: 'Evaluate business risks with verified data and compliance checks',
     color: 'from-indigo-500 to-purple-500',
     stats: 'Secure',
     bgColor: 'bg-indigo-500/20',
@@ -52,8 +52,8 @@ const processItems = [
   },
   {
     icon: TrendingUp,
-    title: 'Opportunity Discovery',
-    description: 'Identify new market opportunities globally',
+    title: 'Market Intelligence',
+    description: 'Strategic insights for pricing, demand forecasting, and expansion',
     color: 'from-pink-500 to-rose-500',
     stats: '$5.72T+',
     bgColor: 'bg-pink-500/20',
@@ -262,7 +262,7 @@ export default function WhatWeDo() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
           >
-            Transform your business decisions with comprehensive trade data, market intelligence, and real-time insights from Vietnam&apos;s dynamic trade ecosystem.
+            Make strategic decisions backed by accurate and real-time trade information from Vietnam and 190+ global markets.
           </motion.p>
 
           {/* Active Service Indicator */}
