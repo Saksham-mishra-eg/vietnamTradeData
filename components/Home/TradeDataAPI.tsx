@@ -9,25 +9,25 @@ const features = [
   {
     icon: Database,
     title: "Real-Time Data Access",
-    description: "Access 70M+ shipment records updated daily via RESTful API endpoints",
+    description: "Access live customs data and shipment records updated continuously from verified sources",
     color: "from-blue-500 to-cyan-500"
   },
   {
     icon: TrendingUp,
-    title: "Market Intelligence",
-    description: "Query trade trends, pricing analytics, and market insights programmatically",
+    title: "HS Code Classification & Mapping",
+    description: "Automated HS code identification and mapping across global trade nomenclature systems",
     color: "from-purple-500 to-pink-500"
   },
   {
     icon: Users,
-    title: "Supplier Discovery",
-    description: "Search and filter 2.2M+ buyers and 314K+ suppliers with advanced filters",
+    title: "Market Intelligence Feeds",
+    description: "Stream trade analytics, pricing trends, and buyer-supplier intelligence directly to your systems",
     color: "from-green-500 to-emerald-500"
   },
   {
     icon: Globe,
-    title: "Global Coverage",
-    description: "Integrate data from 190+ countries with standardized API responses",
+    title: "Automated Daily Updates",
+    description: "Receive automated data updates with 24/7 API availability and enterprise-grade reliability",
     color: "from-orange-500 to-red-500"
   }
 ];
@@ -77,8 +77,7 @@ export default function TradeDataAPI() {
             Global Trade Intelligence API
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Seamlessly integrate Vietnam trade data into your applications with our powerful REST API. 
-            Real-time access to customs records, supplier networks, and market analytics.
+            Integrate real-time customs and shipment intelligence directly into your ERP, CRM, or analytics application. Access 70M+ shipment records, HS code classification, market intelligence feeds, and automated daily updates.
           </p>
         </motion.div>
 

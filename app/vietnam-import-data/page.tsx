@@ -1,12 +1,23 @@
 import { DataPageHero, DataOverview, DataSample, DataFAQs, TradeStatistics, TopCommodities, TradingPartners } from 'components/DataPages';
 import { importDataFaqs } from 'components/Shared/faqs';
 import { CTASection } from 'components/Home';
-import SEO from 'components/SEO';
+import type { Metadata } from 'next';
 
-export const metadata = {
-  title: 'Vietnam Import Data | VietnamTradeData',
-  description: 'Access comprehensive Vietnamese import records with detailed shipment information and company-level fields.'
-}
+export const metadata: Metadata = {
+  title: 'Vietnam Import Data | Detailed Customs Import Records & Statistics',
+  description: 'Complete Vietnam import data with importer details, product info, origin countries, and shipment values. 5M+ records updated daily. Get sample data free.',
+  keywords: 'Vietnam import data, Vietnamese importers, import statistics, customs import records, import shipment data',
+  openGraph: {
+    title: 'Vietnam Import Data | Access Comprehensive Import Records',
+    description: 'Detailed Vietnamese import customs data with company-level fields and shipment information. Updated daily with verified records.',
+    url: 'https://www.vietnamtradedata.com/vietnam-import-data',
+    siteName: 'VietnamTradeData',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://www.vietnamtradedata.com/vietnam-import-data',
+  },
+};
 
 export default function ImportPage(){
   const productSchema = {
@@ -21,7 +32,6 @@ export default function ImportPage(){
 
   return (
     <>
-      <SEO title="Vietnam Import Data | Detailed Customs Import Records & Statistics" description="Complete Vietnam import data with importer details, product info, origin countries, and shipment values. 5M+ records updated daily. Get sample data free." canonical="/Vietnam-import-data" keywords="Vietnam import data, Vietnamese importers, import statistics, customs import records" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       {/* FAQ JSON-LD for Data page (generated from shared faqs) */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({

@@ -1,12 +1,23 @@
 import { DataPageHero, DataOverview, DataSample, DataFAQs, TradeStatistics, TopCommodities, TradingPartners } from 'components/DataPages';
 import { exportDataFaqs } from 'components/Shared/faqs';
 import { CTASection } from 'components/Home';
-import SEO from 'components/SEO';
+import type { Metadata } from 'next';
 
-export const metadata = {
-  title: 'Vietnam Export Data | VietnamTradeData',
-  description: 'Access comprehensive Vietnamese export records with detailed shipment information and company-level fields.'
-}
+export const metadata: Metadata = {
+  title: 'Vietnam Export Data | Vietnamese Exporter Database & Shipment Details',
+  description: 'Access Vietnam export data with exporter companies, destination countries, product details. 5M+ export records. Find buyers and analyze export trends.',
+  keywords: 'Vietnam export data, Vietnamese exporters, export statistics, buyer database, export shipment data',
+  openGraph: {
+    title: 'Vietnam Export Data | Complete Exporter Database & Analytics',
+    description: 'Comprehensive Vietnamese export records with detailed company and shipment information. Track export trends and discover buyers.',
+    url: 'https://www.vietnamtradedata.com/vietnam-export-data',
+    siteName: 'VietnamTradeData',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://www.vietnamtradedata.com/vietnam-export-data',
+  },
+};
 
 export default function ExportPage(){
   const productSchema = {
@@ -21,7 +32,6 @@ export default function ExportPage(){
 
   return (
     <>
-      <SEO title="Vietnam Export Data | Vietnamese Exporter Database & Shipment Details" description="Access Vietnam export data with exporter companies, destination countries, product details. 5M+ export records. Find buyers and analyze export trends." canonical="/Vietnam-export-data" keywords="Vietnam export data, Vietnamese exporters, export statistics, buyer database" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       {/* FAQ JSON-LD for Data page (generated from shared faqs) */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({

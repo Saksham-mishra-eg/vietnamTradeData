@@ -32,7 +32,7 @@ export default function HeroSection() {
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200">
                 <Sparkles className="w-4 h-4 text-blue-600" />
-                <span className="text-sm font-medium text-gray-900">Trusted by 20,000+ Global Businesses</span>
+                <span className="text-sm font-medium text-gray-900">Trusted by 20K+ Global Businesses</span>
               </div>
             </motion.div>
 
@@ -43,8 +43,7 @@ export default function HeroSection() {
             </h1>
 
             <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-              Access real-time import-export data from 190+ countries with 70M+ shipment records. 
-              Make data-driven decisions with comprehensive supplier databases and advanced trade analytics.
+              Access verified Vietnam trade data and global shipment insights to analyze markets, identify buyers, benchmark competitors, and grow your export–import operations. Our AI-powered trade intelligence platform delivers real-time customs data, HS code analysis, and supply chain visibility across 190+ countries.
             </p>
 
             {/* CTA Buttons */}

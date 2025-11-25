@@ -4,8 +4,8 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, Home, Mail, Phone, MessageCircle, ArrowRight, Sparkles } from 'lucide-react';
 import Link from 'next/link';
-import SEO from 'components/SEO';
 
+// Note: This is a client component, metadata should be added via layout or made server component
 export default function ThankYouPage() {
   useEffect(() => {
     // Confetti effect or any other animation
@@ -16,14 +16,7 @@ export default function ThankYouPage() {
   }, []);
 
   return (
-    <>
-      <SEO
-        title="Thank You | Vietnam Trade Data"
-        description="Thank you for signing up with Vietnam Trade Data. We'll be in touch soon with your trade intelligence access."
-        canonical="/thankyou"
-      />
-      
-      <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
         {/* Animated Background */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.8),rgba(239,246,255,0.6))]" />
@@ -238,6 +231,5 @@ export default function ThankYouPage() {
           </motion.div>
         </div>
       </div>
-    </>
   );
 }

@@ -60,7 +60,7 @@ export default function DataSampleSection() {
 
           <TextStagger
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
-            text="Search Vietnam Import Export Trade Data"
+            text="Search Vietnam Import–Export Data"
             as="h2"
           />
           
@@ -69,7 +69,7 @@ export default function DataSampleSection() {
             transition={{ delay: 0.05, duration: 0.3 }}
           >
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Access real-time shipment records, track competitors, and discover new business opportunities
+              Search Vietnam shipment records with Importer/Exporter Name, HS Code & Product Description, Quantity, Unit Price & Total Value, Country of Origin/Destination, Port of Loading/Discharge, Shipment Dates & Bill of Lading
             </p>
           </AnimatedContainer>
         </div>

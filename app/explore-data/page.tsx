@@ -8,6 +8,8 @@ import DetailsPanel from 'components/DataExplorer/DetailsPanel';
 import CTASection from 'components/Home/CTASection';
 import { sampleImportData, sampleExportData, DataRow } from 'components/DataPages/sampleData';
 
+// Note: This is a client component, metadata should be added in layout or parent
+
 type DataType = 'import' | 'export';
 type Filters = { query: string; product: string; country: string; startDate: string; endDate: string };
 
