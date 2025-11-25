@@ -159,6 +159,9 @@ export default function RadialOrbitalTimeline({
       onClick={handleContainerClick}
     >
       <div className="relative w-full max-w-4xl h-full flex items-center justify-center">
+        <h2 className="absolute top-8 text-2xl font-bold text-gray-900 z-20">
+          Vietnam Trade Data Journey
+        </h2>
         <div
           className="absolute w-full h-full flex items-center justify-center"
           ref={orbitRef}

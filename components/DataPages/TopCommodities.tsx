@@ -65,22 +65,6 @@ export default function TopCommodities({ type }: TopCommoditiesProps) {
     return gradients[index % gradients.length];
   };
 
-  const getBadgeColors = (index: number) => {
-    const colors = [
-      'bg-blue-100 text-blue-700 border-blue-200',
-      'bg-indigo-100 text-indigo-700 border-indigo-200',
-      'bg-purple-100 text-purple-700 border-purple-200',
-      'bg-pink-100 text-pink-700 border-pink-200',
-      'bg-rose-100 text-rose-700 border-rose-200',
-      'bg-orange-100 text-orange-700 border-orange-200',
-      'bg-amber-100 text-amber-700 border-amber-200',
-      'bg-yellow-100 text-yellow-700 border-yellow-200',
-      'bg-green-100 text-green-700 border-green-200',
-      'bg-teal-100 text-teal-700 border-teal-200',
-    ];
-    return colors[index % colors.length];
-  };
-
   return (
     <section className="py-20 bg-gradient-to-b from-gray-50 via-white to-gray-50 relative overflow-hidden">
       {/* Background decorations */}
@@ -212,9 +196,6 @@ export default function TopCommodities({ type }: TopCommoditiesProps) {
               <thead>
                 <tr className="bg-gradient-to-r from-gray-50 to-gray-100 border-b-2 border-gray-200">
                   <th className="text-left py-5 px-6 text-sm font-bold text-gray-700 uppercase tracking-wider">
-                    Rank
-                  </th>
-                  <th className="text-left py-5 px-6 text-sm font-bold text-gray-700 uppercase tracking-wider">
                     HS Code
                   </th>
                   <th className="text-left py-5 px-6 text-sm font-bold text-gray-700 uppercase tracking-wider">
@@ -236,11 +217,6 @@ export default function TopCommodities({ type }: TopCommoditiesProps) {
                       key={index}
                       className="border-b border-gray-100 hover:bg-gray-50 transition-colors group"
                     >
-                      <td className="py-3 px-4">
-                        <div className={`w-8 h-8 rounded-lg ${getBadgeColors(index)} border flex items-center justify-center font-bold text-sm`}>
-                          {index + 1}
-                        </div>
-                      </td>
                       <td className="py-3 px-4">
                         <span className="inline-block bg-gray-100 text-gray-700 px-2 py-1 rounded-lg font-mono font-medium text-xs">
                           {commodity.hsCode}

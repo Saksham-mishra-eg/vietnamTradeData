@@ -182,70 +182,137 @@ export default function TradeStatistics({ type }: TradeStatisticsProps) {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="bg-white rounded-2xl shadow-xl border border-gray-200 p-8"
           >
-            <h3 className="text-xl font-bold text-gray-900 mb-8 flex items-center gap-2">
+            <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
               <TrendingUp className="w-6 h-6 text-blue-600" />
               Growth Trend Visualization
             </h3>
 
-            {/* Bar Chart */}
-            <div className="space-y-4">
-              {data.map((item, index) => {
-                const percentage = (item.value / maxValue) * 100;
-                return (
-                  <motion.div
-                    key={item.year}
-                    initial={{ opacity: 0, width: 0 }}
-                    whileInView={{ opacity: 1, width: '100%' }}
+            {/* Line Chart Visualization */}
+            <div className="relative h-80 mb-8">
+              {/* Y-axis labels */}
+              <div className="absolute left-0 top-0 bottom-8 w-16 flex flex-col justify-between text-right pr-3 text-xs text-gray-500">
+                <span>${(maxValue / 1000).toFixed(0)}B</span>
+                <span>${(maxValue * 0.75 / 1000).toFixed(0)}B</span>
+                <span>${(maxValue * 0.5 / 1000).toFixed(0)}B</span>
+                <span>${(maxValue * 0.25 / 1000).toFixed(0)}B</span>
+                <span>$0</span>
+              </div>
+
+              {/* Chart area */}
+              <div className="ml-16 h-full relative">
+                {/* Horizontal grid lines */}
+                <div className="absolute inset-0 flex flex-col justify-between pb-8">
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <div key={i} className="w-full border-t border-gray-200" />
+                  ))}
+                </div>
+
+                {/* Line and area chart */}
+                <svg className="absolute inset-0 w-full h-full pb-8" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="areaGradient" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.3" />
+                      <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.05" />
+                    </linearGradient>
+                  </defs>
+                  
+                  {/* Area under the line */}
+                  <motion.path
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    whileInView={{ pathLength: 1, opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.4 + index * 0.05 }}
-                    className="space-y-2"
-                  >
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="font-semibold text-gray-700 w-16">
-                        {item.year}
-                      </span>
-                      <span className="font-bold text-gray-900">
-                        ${(item.value / 1000).toFixed(0)}B
-                      </span>
-                    </div>
-                    <div className="relative h-8 bg-gray-100 rounded-lg overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${percentage}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.5 + index * 0.05, ease: "easeOut" }}
-                        className="absolute inset-y-0 left-0 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg shadow-md"
-                      />
-                      <div className="absolute inset-0 flex items-center px-3">
-                        <span className="text-xs font-medium text-white drop-shadow-md">
-                          {percentage.toFixed(0)}%
-                        </span>
+                    transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
+                    d={`
+                      M ${data.map((d, i) => `${(i / (data.length - 1)) * 100}% ${100 - (d.value / maxValue) * 100}%`).join(' L ')}
+                      L 100% 100%
+                      L 0% 100%
+                      Z
+                    `}
+                    fill="url(#areaGradient)"
+                  />
+                  
+                  {/* Line path */}
+                  <motion.path
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
+                    d={`M ${data.map((d, i) => `${(i / (data.length - 1)) * 100}% ${100 - (d.value / maxValue) * 100}%`).join(' L ')}`}
+                    fill="none"
+                    stroke="#3B82F6"
+                    strokeWidth="3"
+                    vectorEffect="non-scaling-stroke"
+                  />
+                </svg>
+
+                {/* Data points */}
+                {data.map((item, index) => {
+                  const x = (index / (data.length - 1)) * 100;
+                  const y = 100 - (item.value / maxValue) * 100;
+                  return (
+                    <motion.div
+                      key={item.year}
+                      initial={{ scale: 0, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 0.7 + index * 0.05 }}
+                      className="absolute w-3 h-3 -ml-1.5 -mt-1.5 group cursor-pointer"
+                      style={{ left: `${x}%`, top: `${y}%` }}
+                    >
+                      <div className="w-full h-full bg-blue-600 rounded-full border-2 border-white shadow-lg" />
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block">
+                        <div className="bg-gray-900 text-white text-xs px-3 py-2 rounded-lg shadow-xl whitespace-nowrap">
+                          <div className="font-semibold">{item.year}</div>
+                          <div className="text-blue-300">${(item.value / 1000).toFixed(1)}B</div>
+                          <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900" />
+                        </div>
                       </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
+                    </motion.div>
+                  );
+                })}
+
+                {/* X-axis labels */}
+                <div className="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-gray-500 pt-2">
+                  {data.map((item, index) => (
+                    index % 2 === 0 ? (
+                      <span key={item.year}>{item.year}</span>
+                    ) : (
+                      <span key={item.year} className="md:inline hidden">{item.year}</span>
+                    )
+                  ))}
+                </div>
+              </div>
             </div>
 
-            {/* Summary Stats */}
+            {/* Key Insights */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.9 }}
-              className="mt-8 pt-8 border-t border-gray-200 grid grid-cols-2 gap-4"
+              className="space-y-3"
             >
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4">
-                <p className="text-sm text-gray-600 mb-1">Average Annual</p>
-                <p className="text-xl font-bold text-blue-600">
-                  ${(data.reduce((sum, d) => sum + d.value, 0) / data.length / 1000).toFixed(1)}B
-                </p>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-4">
+                  <p className="text-xs text-gray-600 mb-1">Average Annual</p>
+                  <p className="text-lg font-bold text-blue-600">
+                    ${(data.reduce((sum, d) => sum + d.value, 0) / data.length / 1000).toFixed(1)}B
+                  </p>
+                </div>
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-4">
+                  <p className="text-xs text-gray-600 mb-1">Latest Value</p>
+                  <p className="text-lg font-bold text-green-600">
+                    ${(data[data.length - 1].value / 1000).toFixed(1)}B
+                  </p>
+                </div>
               </div>
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4">
-                <p className="text-sm text-gray-600 mb-1">Latest Value</p>
-                <p className="text-xl font-bold text-green-600">
-                  ${(data[data.length - 1].value / 1000).toFixed(1)}B
+              
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-4">
+                <p className="text-xs text-gray-600 mb-1">Year-over-Year Growth Rate</p>
+                <p className="text-lg font-bold text-purple-600">
+                  {((data[data.length - 1].value - data[data.length - 2].value) / data[data.length - 2].value * 100).toFixed(1)}%
                 </p>
+                <p className="text-xs text-gray-500 mt-1">From {data[data.length - 2].year} to {data[data.length - 1].year}</p>
               </div>
             </motion.div>
           </motion.div>
