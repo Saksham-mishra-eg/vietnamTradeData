@@ -114,10 +114,10 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/company/a-c-soluciones-sa"
                   className="text-slate-300 hover:text-white transition-colors text-sm"
                 >
-                  Custom Reports
+                  Company Profile
                 </Link>
               </li>
               <li>
