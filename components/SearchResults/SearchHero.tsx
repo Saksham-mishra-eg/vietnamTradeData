@@ -44,7 +44,7 @@ export default function SearchHero({ onSearch, initialValues }: SearchHeroProps)
         <form onSubmit={handleSubmit} className="max-w-5xl mx-auto">
           <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8">
             <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
-              Search Trade Data
+              Search Online Global Trade Data
             </h1>
             
             <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
