@@ -1,13 +1,17 @@
 "use client";
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { AnimatedContainer, TextStagger } from 'components/ui/hero-animated';
 import { Search, Package, Building2, Globe, TrendingUp, ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from 'components/ui/button';
 import { motion } from 'framer-motion';
 
 export default function DataSampleSection() {
+  const router = useRouter();
   const [tradeType, setTradeType] = useState<'import' | 'export'>('import');
+  const [searchType, setSearchType] = useState<'product' | 'hscode' | 'importer'>('product');
+  const [searchQuery, setSearchQuery] = useState('');
   return (
     <section className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 overflow-hidden">
       {/* Modern Background Pattern */}
@@ -86,7 +90,23 @@ export default function DataSampleSection() {
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-cyan-400/10 to-blue-400/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
               
               <div className="relative z-10">
-                <form className="space-y-6">
+                <form onSubmit={(e) => {
+                  e.preventDefault();
+                  if (!searchQuery.trim()) return;
+                  
+                  const params = new URLSearchParams({
+                    country: 'VIETNAM',
+                    type: tradeType,
+                  });
+                  
+                  if (searchType === 'hscode') {
+                    params.set('hs', searchQuery.trim());
+                  } else {
+                    params.set('product', searchQuery.trim());
+                  }
+                  
+                  router.push(`/search?${params.toString()}`);
+                }} className="space-y-6">
                   {/* Single Row Search */}
                   <div className="flex flex-col lg:flex-row gap-4">
                     {/* Import/Export Dropdown */}
@@ -117,7 +137,11 @@ export default function DataSampleSection() {
                         <div className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-400 group-focus-within:text-purple-600 transition-colors pointer-events-none">
                           <Search className="w-5 h-5" />
                         </div>
-                        <select className="w-full pl-12 pr-5 py-4 text-gray-900 bg-white/50 border-2 border-gray-200 rounded-2xl focus:border-purple-500 focus:bg-white focus:ring-4 focus:ring-purple-100 outline-none transition-all duration-300 font-medium cursor-pointer appearance-none">
+                        <select 
+                          value={searchType}
+                          onChange={(e) => setSearchType(e.target.value as 'product' | 'hscode' | 'importer')}
+                          className="w-full pl-12 pr-5 py-4 text-gray-900 bg-white/50 border-2 border-gray-200 rounded-2xl focus:border-purple-500 focus:bg-white focus:ring-4 focus:ring-purple-100 outline-none transition-all duration-300 font-medium cursor-pointer appearance-none"
+                        >
                           <option value="product">Product</option>
                           <option value="hscode">HS Code</option>
                           <option value="importer">{tradeType === 'import' ? 'Importer Name' : 'Exporter Name'}</option>
@@ -138,7 +162,15 @@ export default function DataSampleSection() {
                         </div>
                         <input
                           type="text"
-                          placeholder={`Enter HS Code, Product or ${tradeType === 'import' ? 'Importer' : 'Exporter'} Name`}
+                          value={searchQuery}
+                          onChange={(e) => setSearchQuery(e.target.value)}
+                          placeholder={
+                            searchType === 'hscode' 
+                              ? 'Enter HS Code (e.g., 8517)' 
+                              : searchType === 'importer'
+                              ? `Enter ${tradeType === 'import' ? 'Importer' : 'Exporter'} Name`
+                              : 'Enter Product Name'
+                          }
                           className="w-full pl-12 pr-5 py-4 text-gray-900 bg-white/50 border-2 border-gray-200 rounded-2xl focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100 outline-none transition-all duration-300 font-medium placeholder:text-gray-400"
                         />
                       </div>

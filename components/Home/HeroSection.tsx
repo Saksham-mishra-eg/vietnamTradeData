@@ -7,7 +7,7 @@ import { ArrowRight, Sparkles, TrendingUp, Globe, BarChart3, Database, Users } f
 
 export default function HeroSection() {
   return (
-    <section className="bg-white py-12 sm:py-16 lg:py-24 relative overflow-hidden">
+    <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-12 sm:py-16 lg:py-24 relative overflow-hidden">
       {/* Decorative elements - hidden on mobile for cleaner look */}
       <div className="hidden sm:block absolute top-20 right-20 w-3 h-3 sm:w-4 sm:h-4 bg-blue-500 rounded-full animate-pulse"></div>
       <div className="hidden sm:block absolute top-32 right-32 w-2 h-2 sm:w-3 sm:h-3 bg-purple-500 rounded-sm transform rotate-45"></div>
